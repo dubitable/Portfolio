@@ -11,11 +11,6 @@ import { commitSession, getSession } from "~/sessions";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 
-const User = z.object({
-  username: z.string(),
-  password: z.string(),
-});
-
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
   const userId = session.get("userId");
@@ -24,6 +19,11 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
   return null;
 };
+
+const User = z.object({
+  username: z.string(),
+  password: z.string(),
+});
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
