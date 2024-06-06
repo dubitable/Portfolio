@@ -19,7 +19,7 @@ import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import { getSession } from "~/sessions";
 import ReactMarkdown from "~/components/Markdown";
-import { boolean, z } from "zod";
+import { z } from "zod";
 import {
   BlogVersion,
   deleteBlog,
@@ -84,8 +84,6 @@ export const action = async ({
   const session = await getSession(request.headers.get("Cookie"));
   const userId = session.get("userId");
 
-  if (!userId) return json({ success: false, error: "user" });
-
   const formData = await request.formData();
 
   if (formData.get("action") == "image") {
@@ -103,6 +101,8 @@ export const action = async ({
 
     return json({ success: true, url: data.url as string });
   }
+
+  if (!userId) return json({ success: false, error: "user" });
 
   const blog = {
     contentMD: formData.get("contentMD"),
@@ -292,8 +292,11 @@ const BlogWrite = ({
     const b64 = await toBase64(files[0]);
     if (!b64) return;
 
+    const image = b64.toString().replace(/data:image\/(.+?);base64,/, "");
+
     data.append("action", "image");
-    data.append("image", b64.toString().slice(22));
+    data.append("image", image);
+
     submit(data, { method: "POST" });
   };
 
@@ -450,8 +453,6 @@ const Blog = () => {
 
     setIsWriting(!isWriting);
   };
-
-  console.log(tempBlog);
 
   return (
     <div className="h-screen bg-white flex flex-col justify-between">
