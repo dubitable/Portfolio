@@ -5,7 +5,7 @@ import {
   redirect,
   redirectDocument,
   TypedResponse,
-} from "@remix-run/node";
+} from "@vercel/remix";
 import {
   Form,
   useActionData,

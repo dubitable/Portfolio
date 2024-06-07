@@ -1,4 +1,4 @@
-import { json, LoaderFunctionArgs, TypedResponse } from "@remix-run/node";
+import { json, LoaderFunctionArgs, TypedResponse } from "@vercel/remix";
 import { useLoaderData, useLocation } from "@remix-run/react";
 import ReactMarkdown from "~/components/Markdown";
 import { BlogVersion, getBlog } from "~/.server/blog";

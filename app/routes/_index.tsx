@@ -1,4 +1,4 @@
-import { json, LoaderFunctionArgs, TypedResponse } from "@remix-run/node";
+import { json, LoaderFunctionArgs, TypedResponse } from "@vercel/remix";
 import { useLoaderData } from "@remix-run/react";
 import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";

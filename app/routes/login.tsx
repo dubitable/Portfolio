@@ -3,7 +3,7 @@ import {
   json,
   LoaderFunctionArgs,
   redirect,
-} from "@remix-run/node";
+} from "@vercel/remix";
 import { Form } from "@remix-run/react";
 import { login, LoginError, LoginErrors } from "~/.server/auth";
 import { z } from "zod";
