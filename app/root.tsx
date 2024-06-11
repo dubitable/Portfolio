@@ -7,6 +7,8 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@vercel/remix";
 import stylesheet from "./tailwind.css?url";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/remix";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -31,7 +33,15 @@ export const links: LinksFunction = () => {
 };
 
 const App = () => {
-  return <Outlet />;
+  return (
+    <html lang="en">
+      <body>
+        <Analytics />
+        <SpeedInsights />
+        <Outlet />
+      </body>
+    </html>
+  );
 };
 
 export default App;
