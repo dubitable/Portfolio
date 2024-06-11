@@ -256,7 +256,6 @@ const BlogWrite = ({
   showBadges,
   toggleBadges,
   loggedIn,
-  tempBlog,
   setTempBlog,
 }: {
   toggleWrite: () => void;
@@ -308,7 +307,9 @@ const BlogWrite = ({
 
   const lastSaved = blogVersion?.createdAt ?? actionData?.lastSaved;
   const lastPublished =
-    tempPublished ?? blogVersion?.updatedAt ?? actionData?.lastPublished;
+    tempPublished ??
+    (blogVersion?.published ? blogVersion?.updatedAt : null) ??
+    actionData?.lastPublished;
 
   const blogId = blogVersion?.id ?? actionData?.blogId;
 
