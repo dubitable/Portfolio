@@ -12,7 +12,13 @@ import {
   useLoaderData,
   useSubmit,
 } from "@remix-run/react";
-import { FormEvent, useEffect, useState } from "react";
+import {
+  FormEvent,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { getUserInfo } from "~/.server/auth";
 import FancyButton from "~/components/FancyButton";
 import Footer from "~/components/Footer";
@@ -306,6 +312,8 @@ const BlogWrite = ({
 
   const blogId = blogVersion?.id ?? actionData?.blogId;
 
+  const ref = useRef() as MutableRefObject<HTMLTextAreaElement>;
+
   return (
     <div className="w-full">
       <Form method="POST">
@@ -322,8 +330,9 @@ const BlogWrite = ({
               onChange={(event) => setContentMD(event.target.value)}
               value={contentMD}
               id="markdown"
-              rows={20}
-              className="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
+              rows={21}
+              ref={ref}
+              className="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm resize-none"
             />
           </div>
           <input
@@ -339,7 +348,11 @@ const BlogWrite = ({
             >
               Result
             </label>
-            <div id="rendered" className="mt-2">
+            <div
+              id="rendered"
+              className="mt-2 overflow-auto"
+              style={{ height: ref?.current?.offsetHeight ?? undefined }}
+            >
               <ReactMarkdown>{contentMD}</ReactMarkdown>
             </div>
           </div>

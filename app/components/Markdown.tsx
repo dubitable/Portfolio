@@ -13,7 +13,7 @@ const ReactMarkdown = ({
 }) => {
   return (
     <Markdown
-      className="prose"
+      className="prose sm:prose-sm lg:prose-base"
       remarkPlugins={[remarkGfm, remarkBreaks]}
       children={children}
       components={{

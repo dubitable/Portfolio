@@ -44,7 +44,7 @@ const BlogViewer = () => {
   return (
     <div className="h-screen bg-white flex flex-col justify-between">
       <Header />
-      <div className="flex justify-center align-middle">
+      <div className="flex justify-center align-middle mx-10 mt-10">
         <ReactMarkdown>{blog.contentMD}</ReactMarkdown>
       </div>
       <Footer />
