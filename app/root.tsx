@@ -34,13 +34,11 @@ export const links: LinksFunction = () => {
 
 const App = () => {
   return (
-    <html lang="en">
-      <body>
-        <Analytics />
-        <SpeedInsights />
-        <Outlet />
-      </body>
-    </html>
+    <div>
+      <Analytics />
+      <SpeedInsights />
+      <Outlet />
+    </div>
   );
 };
 
