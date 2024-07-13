@@ -3,7 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/sessions";
+import { getSession } from "~/helpers/sessions";
 
 type LoaderData = {
   loggedIn: boolean;

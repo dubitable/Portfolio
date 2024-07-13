@@ -7,7 +7,7 @@ import {
 import { Form } from "@remix-run/react";
 import { login, LoginError, LoginErrors } from "~/.server/auth";
 import { z } from "zod";
-import { commitSession, getSession } from "~/sessions";
+import { commitSession, getSession } from "~/helpers/sessions";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 

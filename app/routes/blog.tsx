@@ -23,7 +23,7 @@ import { getUserInfo } from "~/.server/auth";
 import FancyButton from "~/components/FancyButton";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/sessions";
+import { getSession } from "~/helpers/sessions";
 import ReactMarkdown from "~/components/Markdown";
 import { z } from "zod";
 import {

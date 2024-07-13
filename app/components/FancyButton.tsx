@@ -1,5 +1,3 @@
-import { Link } from "@remix-run/react";
-
 const FancyButton = ({
   onClick,
   title,
