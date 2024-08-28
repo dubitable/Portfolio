@@ -470,7 +470,7 @@ const Blog = () => {
 
   return (
     <div className="h-screen bg-white flex flex-col justify-between">
-      <Header />
+      <Header username={user?.username} />
       {isWriting ? (
         <BlogWrite
           toggleWrite={toggleWrite}

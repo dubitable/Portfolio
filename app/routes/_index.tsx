@@ -1,4 +1,9 @@
-import { json, LoaderFunctionArgs, TypedResponse } from "@vercel/remix";
+import {
+  json,
+  LoaderFunctionArgs,
+  redirect,
+  TypedResponse,
+} from "@vercel/remix";
 import { useLoaderData } from "@remix-run/react";
 import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";
@@ -18,7 +23,7 @@ export const loader = async ({
 
   const userId = session.get("userId");
 
-  if (!userId) return json({ loggedIn: false });
+  if (!userId) return redirect("/blog");
 
   const username = await getUserInfo(userId);
 
@@ -29,7 +34,7 @@ const Index = () => {
   const user = useLoaderData<typeof loader>();
   return (
     <div className="h-screen bg-white flex flex-col justify-between align-items">
-      <Header />
+      <Header username={user.username} />
       <div className="flex justify-center">
         <h2 className="text-black font-extrabold text-3xl">
           welcome {user.username ?? ""}

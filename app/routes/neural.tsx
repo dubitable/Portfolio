@@ -24,8 +24,11 @@ import ReplayIcon from "~/components/icons/ReplayIcon";
 import PlayIcon from "~/components/icons/PlayIcon";
 import PauseIcon from "~/components/icons/PauseIcon";
 import Select from "~/components/Select";
-import { useNavigate } from "@remix-run/react";
+import { json, useLoaderData, useNavigate } from "@remix-run/react";
 import { usePopper } from "react-popper";
+import { LoaderFunctionArgs, TypedResponse } from "@remix-run/node";
+import { getUserInfo } from "~/.server/auth";
+import { getSession } from "~/helpers/sessions";
 
 const maxIndex = (array: number[]) => {
   return array.reduce(
@@ -52,7 +55,29 @@ learningOptions.push("0.01", "0.03", "0.1", "0.3", "1", "3", "10");
 
 const activationOptions = ["tanh", "sigmoid", "relu", "linear"] as const;
 
+type LoaderData = {
+  loggedIn: boolean;
+  username?: string;
+  userId?: string;
+};
+
+export const loader = async ({
+  request,
+}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+  const session = await getSession(request.headers.get("Cookie"));
+
+  const userId = session.get("userId");
+
+  if (!userId) return json({ loggedIn: false });
+
+  const username = await getUserInfo(userId);
+
+  return json({ loggedIn: true, userId, username });
+};
+
 const Neural = () => {
+  const user = useLoaderData<typeof loader>();
+
   const mapRef = useRef<HTMLDivElement>(null);
   const layerRef = useRef<HTMLDivElement>(null);
   const netRef = useRef<HTMLDivElement>(null);
@@ -229,7 +254,7 @@ const Neural = () => {
 
   return (
     <div className="h-screen bg-white flex flex-col justify-between align-items">
-      <Header />
+      <Header username={user.username} />
       <div className="flex align-items border-2 border-black h-full mt-16 mx-8 rounded-lg">
         <div className="flex flex-col border-2 border-red-500 w-1/3 m-4 rounded-lg">
           <div className="flex h-1/4 m-1 rounded">
