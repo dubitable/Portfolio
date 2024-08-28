@@ -11,11 +11,10 @@ import HeatMap from "~/components/HeatMap";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import colors from "~/components/colors/colors";
+import { Dataset, Feature } from "~/helpers/dataset";
 import {
   Activation,
   ActivationLayer,
-  Dataset,
-  Feature,
   FullyConnectedLayer,
   Loss,
   Matrix,
