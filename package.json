@@ -8,6 +8,7 @@
     "dev": "remix vite:dev"
   },
   "dependencies": {
+    "@gradio/client": "^1.5.1",
     "@prisma/client": "^5.13.0",
     "@remix-run/node": "^2.9.1",
     "@remix-run/react": "^2.9.1",

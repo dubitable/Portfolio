@@ -1,4 +1,4 @@
-const Select = ({
+const Select = <Option extends string>({
   title,
   options,
   onSelect,
@@ -6,8 +6,8 @@ const Select = ({
   disabled,
 }: {
   title: string;
-  options: string[];
-  onSelect: (option: (typeof options)[number]) => void;
+  options: Option[];
+  onSelect: (option: Option) => void;
   defaultValue?: string;
   disabled?: boolean;
 }) => {
@@ -20,7 +20,7 @@ const Select = ({
       <select
         name={title}
         id={title}
-        onChange={(event) => onSelect(event.target.value)}
+        onChange={(event) => onSelect(event.target.value as Option)}
         className="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
         defaultValue={defaultValue}
       >
