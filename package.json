@@ -3,12 +3,12 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "build": "remix vite:build && prisma generate",
     "dev": "remix vite:dev"
   },
   "dependencies": {
-    "@gradio/client": "^1.5.1",
     "@prisma/client": "^5.13.0",
     "@remix-run/node": "^2.9.1",
     "@remix-run/react": "^2.9.1",
@@ -34,6 +34,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@gradio/client": "^1.5.1",
     "@remix-run/dev": "^2.9.1",
     "@types/bcryptjs": "^2.4.6",
     "@types/d3": "^7.4.3",

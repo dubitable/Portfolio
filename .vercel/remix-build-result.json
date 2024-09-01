@@ -10,8 +10,10 @@
       }
     },
     "routeIdToServerBundleId": {
+      "routes/basketball": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/blog_.$id": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/neural": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/login": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/blog": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
     },
@@ -21,6 +23,15 @@
         "id": "root",
         "file": "app/root.tsx",
         "config": {}
+      },
+      "routes/basketball": {
+        "file": "app/routes/basketball.tsx",
+        "id": "routes/basketball",
+        "path": "basketball",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
       },
       "routes/blog_.$id": {
         "file": "app/routes/blog_.$id.tsx",
@@ -35,6 +46,15 @@
         "file": "app/routes/_index.tsx",
         "id": "routes/_index",
         "index": true,
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/neural": {
+        "file": "app/routes/neural.tsx",
+        "id": "routes/neural",
+        "path": "neural",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -68,7 +88,8 @@
       "v3_fetcherPersist": false,
       "v3_relativeSplatPath": false,
       "v3_throwAbortReason": false,
-      "unstable_singleFetch": false
+      "unstable_singleFetch": false,
+      "unstable_lazyRouteDiscovery": false
     },
     "manifest": false,
     "publicPath": "/",
@@ -77,6 +98,12 @@
         "path": "",
         "id": "root",
         "file": "root.tsx"
+      },
+      "routes/basketball": {
+        "file": "routes/basketball.tsx",
+        "id": "routes/basketball",
+        "path": "basketball",
+        "parentId": "root"
       },
       "routes/blog_.$id": {
         "file": "routes/blog_.$id.tsx",
@@ -88,6 +115,12 @@
         "file": "routes/_index.tsx",
         "id": "routes/_index",
         "index": true,
+        "parentId": "root"
+      },
+      "routes/neural": {
+        "file": "routes/neural.tsx",
+        "id": "routes/neural",
+        "path": "neural",
         "parentId": "root"
       },
       "routes/login": {

@@ -9,7 +9,7 @@ import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import { getSession } from "~/helpers/sessions";
-import { Client, handle_file } from "@gradio/client";
+import { Client, FileData, handle_file } from "@gradio/client";
 import { z } from "zod";
 import { CSSProperties, useState } from "react";
 import ImageIcon from "~/components/icons/ImageIcon";
@@ -18,6 +18,7 @@ import loading from "/assets/loading.gif";
 import Select from "~/components/Select";
 import VideoIcon from "~/components/icons/VideoIcon";
 import FancyButton from "~/components/FancyButton";
+import { Command } from "node_modules/@gradio/client/dist/types";
 
 type LoaderData = {
   ENV: { HUGGING_FACE_KEY: string };
@@ -52,7 +53,7 @@ const predictionSchema = z.object({
 type Endpoint = "basketball-classify" | "human-pose";
 
 const predict = async (
-  file: File | string,
+  file: Blob | FileData | Command,
   type: "video" | "image",
   endpoint: Endpoint,
   HUGGING_FACE_KEY: string
@@ -63,7 +64,7 @@ const predict = async (
   });
 
   const prediction = await app.predict("/predict", {
-    image: handle_file(file),
+    image: file,
   });
 
   console.log(prediction);
@@ -77,7 +78,7 @@ type DetectionMode = "classify" | "pose" | "both";
 
 const submit = async (
   detectionMode: DetectionMode,
-  file: File | string,
+  file: Blob | FileData | Command,
   type: "image" | "video",
   KEY: string,
   setImageUrl: (url?: string) => void,
@@ -152,7 +153,7 @@ const Input = ({
             onClick={() =>
               submit(
                 detectionMode,
-                examples[file],
+                handle_file(examples[file]),
                 inputType,
                 KEY,
                 setImageUrl,
@@ -201,7 +202,7 @@ const Input = ({
 
           submit(
             detectionMode,
-            files[0],
+            handle_file(files[0]),
             inputType,
             KEY,
             setImageUrl,
@@ -250,12 +251,6 @@ const Index = () => {
                 defaultValue="classify"
                 title="Detection Mode"
                 onSelect={setMode}
-              />
-              <Select
-                options={["upload", "Jordan", "LeBron"]}
-                defaultValue="classify"
-                title="File"
-                onSelect={setFile}
               />
             </div>
 
