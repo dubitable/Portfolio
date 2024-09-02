@@ -7,6 +7,7 @@ import Footer from "~/components/Footer";
 import Error404 from "~/components/404";
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/helpers/sessions";
+import { isSafari } from "react-device-detect";
 
 type LoaderData = {
   success: boolean;
@@ -60,6 +61,19 @@ const BlogViewer = () => {
 
   if (!blog) {
     return <Error404 />;
+  }
+
+  if (isSafari) {
+    return (
+      <div className="m-2">
+        <h2 className="text-lg font-bold">
+          Looks like Safari is bugging out with Markdown for some reason. The
+          following will be the raw md file so not super pretty, but hopefully
+          better than nothing.
+        </h2>
+        <div>{blog?.contentMD}</div>
+      </div>
+    );
   }
 
   return (

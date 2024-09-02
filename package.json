@@ -24,6 +24,7 @@
     "javascript-color-gradient": "^2.4.4",
     "light-date": "^1.2.0",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.1",
     "react-popper": "^2.3.0",
