@@ -15,50 +15,36 @@ const Header = ({ username }: { username?: string }) => {
               <li>
                 <a
                   className="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
+                  href="/about#aboutme"
                 >
-                  {" "}
-                  About{" "}
+                  About
                 </a>
               </li>
 
               <li>
                 <a
                   className="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
+                  href="/neural"
                 >
-                  {" "}
-                  Careers{" "}
+                  Neural Playground
                 </a>
               </li>
 
               <li>
                 <a
                   className="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
+                  href="/basketball"
                 >
-                  {" "}
-                  History{" "}
+                  Basketball AI
                 </a>
               </li>
 
               <li>
                 <a
                   className="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
+                  href="/admin"
                 >
-                  {" "}
-                  Services{" "}
-                </a>
-              </li>
-
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="#"
-                >
-                  {" "}
-                  Projects{" "}
+                  Admin Dashboard
                 </a>
               </li>
 
@@ -67,8 +53,7 @@ const Header = ({ username }: { username?: string }) => {
                   to="/blog"
                   className="text-gray-500 transition hover:text-gray-500/75"
                 >
-                  {" "}
-                  Blog{" "}
+                  Blog
                 </Link>
               </li>
             </ul>

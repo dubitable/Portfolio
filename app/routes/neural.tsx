@@ -25,7 +25,6 @@ import PlayIcon from "~/components/icons/PlayIcon";
 import PauseIcon from "~/components/icons/PauseIcon";
 import Select from "~/components/Select";
 import { json, useLoaderData, useNavigate } from "@remix-run/react";
-import { usePopper } from "react-popper";
 import { LoaderFunctionArgs, TypedResponse } from "@remix-run/node";
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/helpers/sessions";
