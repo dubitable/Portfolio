@@ -254,8 +254,8 @@ const Neural = () => {
   return (
     <div className="h-screen bg-white flex flex-col justify-between align-items">
       <Header username={user.username} />
-      <div className="flex align-items border-2 border-black h-full mt-16 mx-8 rounded-lg">
-        <div className="flex flex-col border-2 border-red-500 w-1/3 m-4 rounded-lg">
+      <div className="flex align-items bg-gray-50 h-full mt-16 mx-8 rounded-lg">
+        <div className="flex flex-col w-1/3 m-4 rounded-lg">
           <div className="flex h-1/4 m-1 rounded">
             <div className="flex h-full w-full justify-center text-lg">
               <div className="flex flex-col justify-center text-lg">
@@ -346,7 +346,7 @@ const Neural = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex border-2 border-red-500 w-full m-4 rounded-lg">
+        <div className="relative flex w-full m-4 rounded-lg">
           <div
             ref={netRef}
             className="absolute w-full h-full pointer-events-none"
@@ -375,10 +375,10 @@ const Neural = () => {
             {Feature.all().map((feature, index) => {
               return (
                 <div
-                  className="h-full m-3 flex justify-center align-middle border-red-500 rounded-lg cursor-pointer"
+                  className="h-full m-3 flex justify-center align-middle rounded-full cursor-pointer text-gray-900 items-center"
                   style={{
-                    borderWidth: selectedFeatures.includes(index)
-                      ? 2
+                    background: selectedFeatures.includes(index)
+                      ? "rgb(229 231 235)"
                       : undefined,
                   }}
                   key={index}
@@ -521,16 +521,13 @@ const Neural = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col border-2 border-red-500 w-1/3 m-4 rounded-lg">
+        <div className="flex flex-col w-1/3 m-4 rounded-lg">
           <div className="flex flex-row justify-center h-1/6 m-2 rounded">
             <div className="flex flex-col justify-center text-lg">
               <div>Error: {network.error.toFixed(3)}</div>
             </div>
           </div>
-          <div
-            className="border-2 border-blue-500 h-3/6 m-2 rounded-lg"
-            ref={mapRef}
-          >
+          <div className="bg-gray-200 h-3/6 m-2 rounded-lg" ref={mapRef}>
             <HeatMap
               data={trainingData}
               setData={setTrainingData}
@@ -540,7 +537,7 @@ const Neural = () => {
             />
           </div>
           <div className="flex h-2/6 m-2 rounded">
-            <div className="flex flex-col border-2 border-green-500 w-full m-1 rounded-lg">
+            <div className="flex flex-col bg-gray-200 w-full m-1 rounded-lg">
               <div className="flex flex-wrap h-3/5">
                 {[...Array(outputs)].map((_, index) => {
                   const color = colors.point[pointColorMap[pointColors[index]]];
@@ -548,7 +545,7 @@ const Neural = () => {
                   return (
                     <div
                       key={index}
-                      className="flex justify-center w-1/3 h-1/2  border-black rounded-lg"
+                      className="flex justify-center w-1/3 h-1/2 border-gray-50 rounded-lg"
                       style={{
                         borderWidth:
                           pointColors[index] == selectedColor ? 2 : undefined,
@@ -595,36 +592,44 @@ const Neural = () => {
 
             <div className="flex flex-wrap w-full m-1 rounded-lg">
               <div
-                className="flex justify-center border-2 border-green-500 w-1/2 h-1/2 rounded-tl-lg cursor-pointer"
+                className="flex justify-center border-2 border-gray-50 bg-gray-200 w-1/2 h-1/2 rounded-tl-lg cursor-pointer"
                 onClick={() => {
                   setTrainingData(Dataset.bunches(200, outputs));
                 }}
               >
-                <div className="flex flex-col justify-center">1</div>
+                <div className="flex flex-col justify-center text-gray-900">
+                  1
+                </div>
               </div>
               <div
-                className="flex justify-center border-2 border-green-500 w-1/2 h-1/2 rounded-tr-lg cursor-pointer"
+                className="flex justify-center border-2 border-gray-50 bg-gray-200 w-1/2 h-1/2 rounded-tr-lg cursor-pointer"
                 onClick={() => {
                   setTrainingData(Dataset.circles(300, outputs));
                 }}
               >
-                <div className="flex flex-col justify-center">2</div>
+                <div className="flex flex-col justify-center text-gray-900">
+                  2
+                </div>
               </div>
               <div
-                className="flex justify-center border-2 border-green-500 w-1/2 h-1/2 rounded-bl-lg cursor-pointer"
+                className="flex justify-center border-2 border-gray-50 bg-gray-200 w-1/2 h-1/2 rounded-bl-lg cursor-pointer"
                 onClick={() => {
                   setTrainingData(Dataset.waves(300, outputs));
                 }}
               >
-                <div className="flex flex-col justify-center">3</div>
+                <div className="flex flex-col justify-center text-gray-900">
+                  3
+                </div>
               </div>
               <div
-                className="flex justify-center border-2 border-green-500 w-1/2 h-1/2 rounded-br-lg cursor-pointer"
+                className="flex justify-center border-2 border-gray-50 bg-gray-200 w-1/2 h-1/2 rounded-br-lg cursor-pointer"
                 onClick={() => {
                   setTrainingData(Dataset.random(100, outputs));
                 }}
               >
-                <div className="flex flex-col justify-center">4</div>
+                <div className="flex flex-col justify-center text-gray-900">
+                  4
+                </div>
               </div>
             </div>
           </div>

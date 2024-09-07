@@ -3,7 +3,7 @@ import colors from "../colors/colors";
 const PauseIcon = () => {
   return (
     <svg
-      color={colors.point.button}
+      color={"rgb(156 163 175)"}
       stroke="currentColor"
       fill="currentColor"
       strokeWidth="0"

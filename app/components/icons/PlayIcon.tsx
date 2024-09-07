@@ -3,7 +3,7 @@ import colors from "../colors/colors";
 const PlayIcon = () => (
   <svg
     className="hover:opacity-85"
-    color={colors.point.button}
+    color={"rgb(156 163 175)"}
     stroke="currentColor"
     fill="currentColor"
     strokeWidth="0"

@@ -39,6 +39,7 @@ const HeatMap = ({
     <svg
       width={width}
       height={height}
+      className="rounded-lg"
       onClick={(event) => {
         const x = xScale.invert(event.pageX - pageX);
         const y = yScale.invert(event.pageY - pageY);
