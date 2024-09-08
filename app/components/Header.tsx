@@ -33,9 +33,9 @@ const Header = ({ username }: { username?: string }) => {
               <li>
                 <a
                   className="text-gray-500 transition hover:text-gray-500/75"
-                  href="/basketball"
+                  href="/classifiers"
                 >
-                  Basketball AI
+                  Classifiers
                 </a>
               </li>
 
