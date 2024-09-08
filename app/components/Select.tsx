@@ -4,18 +4,22 @@ const Select = <Option extends string>({
   onSelect,
   defaultValue,
   disabled,
+  disableIcon,
 }: {
   title: string;
   options: Option[];
   onSelect: (option: Option) => void;
   defaultValue?: string;
   disabled?: boolean;
+  disableIcon?: boolean;
 }) => {
   return (
     <div>
-      <label htmlFor={title} className="block text-sm text-gray-900">
-        {title}
-      </label>
+      {!disableIcon && (
+        <label htmlFor={title} className="block text-sm text-gray-900">
+          {title}
+        </label>
+      )}
 
       <select
         name={title}

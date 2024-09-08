@@ -1,5 +1,5 @@
 import { capitalize } from "~/helpers/string";
-import { Classifier } from "~/routes/classifiers";
+import PlusIcon from "./icons/PlusIcon";
 
 const Progress = ({
   classifiers,
@@ -19,13 +19,14 @@ const Progress = ({
       <h2 className="sr-only">Classifier List</h2>
 
       <div>
-        <ol className="grid grid-cols-1 divide-x divide-gray-100 overflow-hidden rounded-lg border border-gray-100 text-sm text-gray-500 sm:grid-cols-3">
+        <ol className="flex justify-center divide-x divide-gray-100 overflow-hidden rounded-lg border border-gray-100 text-sm text-gray-500">
           {classifiers.map(({ name, icon, desc }, index) => {
             return (
               <li
                 className="relative flex items-center justify-center gap-2 p-4 cursor-pointer"
                 style={{
                   background: current == name ? "rgb(249 250 251)" : undefined,
+                  width: `${(1 / (classifiers.length + 1)) * 100}%`,
                 }}
                 onClick={() => setCurrent(name)}
                 key={index}
@@ -45,6 +46,22 @@ const Progress = ({
               </li>
             );
           })}
+          <li
+            className="relative flex items-center justify-center gap-2 p-4 cursor-pointer"
+            style={{
+              background: current == "custom" ? "rgb(249 250 251)" : undefined,
+              width: `${(1 / (classifiers.length + 1)) * 100}%`,
+            }}
+            onClick={() => setCurrent("custom")}
+          >
+            <div className="size-6">
+              <PlusIcon />
+            </div>
+            <p className="leading-none">
+              <strong className="block font-medium">Custom</strong>
+              <small className="mt-1"> Add your own! </small>
+            </p>
+          </li>
         </ol>
       </div>
     </div>
