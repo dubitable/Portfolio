@@ -168,11 +168,13 @@ const Input = ({
   setImageUrl,
   hidden,
   space,
+  endpoint,
 }: {
   KEY: string;
   setImageUrl: (url?: string) => void;
   hidden?: boolean;
   space: Space;
+  endpoint?: string;
 }) => {
   const [isLoading, setLoading] = useState(false);
   hidden = hidden || false;
@@ -211,7 +213,7 @@ const Input = ({
           if (setLoading) setLoading(true);
           let imageUrl = undefined;
 
-          imageUrl = await predict(files[0], KEY, space);
+          imageUrl = await predict(files[0], KEY, space, endpoint);
 
           setImageUrl(imageUrl);
           if (setLoading) setLoading(false);
@@ -452,6 +454,7 @@ const Classifier = ({
               KEY={HUGGING_FACE_KEY}
               hidden={true}
               space={classifier.space}
+              endpoint={classifier.endpoint}
             />
           </div>
 

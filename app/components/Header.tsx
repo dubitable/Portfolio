@@ -40,15 +40,6 @@ const Header = ({ username }: { username?: string }) => {
               </li>
 
               <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="/admin"
-                >
-                  Admin Dashboard
-                </a>
-              </li>
-
-              <li>
                 <Link
                   to="/blog"
                   className="text-gray-500 transition hover:text-gray-500/75"
