@@ -102,7 +102,7 @@ const papers: Card[] = [
     name: "Measuring the Madness",
     className: "STA 199L | Dr. Elijah Meyer",
     desc: "A Statistical Analysis of How Different College Basketball Seeds Performed in the NCAA Tournament from 1985-2019.",
-    date: "December 8th, 2024",
+    date: "December 8th, 2023",
     categories: "Data Science, Sports Analytics, Statistics",
     href: "https://sta199-f23-1.github.io/project-f23-1-merge_conflict/report.html",
     src: "/writing/march.png",
