@@ -243,7 +243,7 @@ const CustomClassifier = ({
       const { name, desc, longdesc, icon, endpoint, space, image } =
         actionData.classifier;
 
-      const elems = { name, desc, image, space };
+      const elems = { name, desc, image, space, endpoint };
 
       addClassifier({
         ...elems,
@@ -437,7 +437,7 @@ const Classifier = ({
   const [imageUrl, setImageUrl] = useState<string | undefined>();
 
   return (
-    <section className="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 m-5 rounded-xl">
+    <section className="overflow-scroll bg-gray-50 sm:grid sm:grid-cols-2 m-5 rounded-xl">
       <div className="p-8 md:p-12 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
           <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -460,7 +460,7 @@ const Classifier = ({
 
           <div className="my-4 md:my-8">
             <a
-              href="https://huggingface.co/spaces/pierrequereuil/basketball-classify"
+              href={"https://huggingface.co/spaces/" + classifier.space}
               target="_blank"
             >
               <FancyButton title="Go to HuggingFace Space" />
