@@ -40,12 +40,21 @@ const Header = ({ username }: { username?: string }) => {
               </li>
 
               <li>
-                <Link
-                  to="/blog"
+                <a
+                  className="text-gray-500 transition hover:text-gray-500/75"
+                  href="/writing"
+                >
+                  Academic Writing
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="/blog"
                   className="text-gray-500 transition hover:text-gray-500/75"
                 >
                   Blog
-                </Link>
+                </a>
               </li>
             </ul>
           </nav>
