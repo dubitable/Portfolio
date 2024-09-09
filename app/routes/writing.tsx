@@ -114,7 +114,7 @@ const Writing = () => {
   return (
     <div className="h-screen bg-white flex flex-col justify-between align-items">
       <Header username={user.username} />
-      <div className="flex flex-col justify-center gap-10 mx-20">
+      <div className="flex flex-col justify-center gap-10 mx-5 sm:mx-20">
         {papers.map((paper, index) => (
           <div key={index}>
             <Paper paper={paper} />
