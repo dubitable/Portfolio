@@ -19,15 +19,7 @@ type LoaderData = {
 export const loader = async ({
   request,
 }: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
-  const session = await getSession(request.headers.get("Cookie"));
-
-  const userId = session.get("userId");
-
-  if (!userId) return redirect("/blog");
-
-  const username = await getUserInfo(userId);
-
-  return json({ loggedIn: true, userId, username });
+  return redirect("/blog");
 };
 
 const Index = () => {
