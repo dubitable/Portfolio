@@ -5,7 +5,6 @@ import {
   Prism as SyntaxHighlighter,
   SyntaxHighlighterProps,
 } from "react-syntax-highlighter";
-import { isSafari } from "react-device-detect";
 
 const ReactMarkdown = ({
   children,

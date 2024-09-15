@@ -74,7 +74,11 @@ const aboutMes = [
     image: "/about/un.jpeg",
     icon: () => <CodeIcon />,
     extra: () => (
-      <a href="/Resume.pdf" download className="underline text-blue-500">
+      <a
+        href="/pierreq-resume.pdf"
+        download
+        className="underline text-blue-500"
+      >
         Download Resume
       </a>
     ),
@@ -116,7 +120,11 @@ const aboutMes = [
           );
         })}
         <li>
-          <a href="/Resume.pdf" download className="underline text-blue-500">
+          <a
+            href="/pierreq-resume.pdf"
+            download
+            className="underline text-blue-500"
+          >
             Download Resume
           </a>
         </li>

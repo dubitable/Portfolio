@@ -40,7 +40,7 @@ const Footer = () => {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-6 sm:px-6 lg:px-8 lg:pt-24">
-        <div className="border-gray-100 sm:flex sm:items-center sm:justify-center">
+        <div className="border-gray-100 sm:flex sm:items-center sm:justify-between">
           <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
             <li>
               <a
@@ -53,19 +53,19 @@ const Footer = () => {
 
             <li>
               <a
-                href="/blogs"
+                href="/blog"
                 className="text-gray-500 transition hover:opacity-75"
               >
-                What Can I Do?
+                What Can I Build?
               </a>
             </li>
 
             <li>
               <a
-                href="/about#experience"
+                href="/neural"
                 className="text-gray-500 transition hover:opacity-75"
               >
-                Do I Have Experience?
+                Something Cool
               </a>
             </li>
           </ul>
