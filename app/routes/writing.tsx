@@ -90,15 +90,6 @@ const Paper = ({
 
 const papers: Card[] = [
   {
-    name: "La Poésie Yoruba et l'Intraduisible",
-    className: "FRENCH 432S | Dr. Felwine Sarr",
-    desc: "«Que faire de tout ce qui a été dit, raconté, chanté?» - Mohamed Mbougar Sarr",
-    date: "Apr 28, 2024",
-    categories: "African Languages, Yoruba Poetry, Philosophy and Literature",
-    href: "/writing/poesieyoruba.pdf",
-    src: "/writing/yoruba.png",
-  },
-  {
     name: "Measuring the Madness",
     className: "STA 199L | Dr. Elijah Meyer",
     desc: "A Statistical Analysis of How Different College Basketball Seeds Performed in the NCAA Tournament from 1985-2019.",
@@ -106,6 +97,15 @@ const papers: Card[] = [
     categories: "Data Science, Sports Analytics, Statistics",
     href: "https://sta199-f23-1.github.io/project-f23-1-merge_conflict/report.html",
     src: "/writing/march.png",
+  },
+  {
+    name: "La Poésie Yoruba et l'Intraduisible",
+    className: "FRENCH 432S | Dr. Felwine Sarr",
+    desc: "«Que faire de tout ce qui a été dit, raconté, chanté?» - Mohamed Mbougar Sarr",
+    date: "Apr 28, 2024",
+    categories: "African Languages, Yoruba Poetry, Philosophy and Literature",
+    href: "/writing/poesieyoruba.pdf",
+    src: "/writing/yoruba.png",
   },
 ];
 

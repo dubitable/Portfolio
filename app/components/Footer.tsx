@@ -40,28 +40,37 @@ const Footer = () => {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-6 sm:px-6 lg:px-8 lg:pt-24">
-        <div className="border-gray-100 sm:flex sm:items-center sm:justify-between">
+        <div className="border-gray-100 sm:flex sm:items-center sm:justify-center">
           <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
-                Terms & Conditions
+              <a
+                href="/about"
+                className="text-gray-500 transition hover:opacity-75"
+              >
+                Who Am I?
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
-                Privacy Policy
+              <a
+                href="/blogs"
+                className="text-gray-500 transition hover:opacity-75"
+              >
+                What Can I Do?
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-gray-500 transition hover:opacity-75">
-                Cookies
+              <a
+                href="/about#experience"
+                className="text-gray-500 transition hover:opacity-75"
+              >
+                Do I Have Experience?
               </a>
             </li>
           </ul>
 
-          <ul className="flex justify-center gap-6 sm:mt-0 lg:justify-end">
+          <ul className="flex justify-center gap-6 sm:mt-5 lg:justify-end">
             {socials.map((social, index) => (
               <div key={index}>
                 <Social social={social} />

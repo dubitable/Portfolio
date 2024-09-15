@@ -5,10 +5,8 @@ import {
   TypedResponse,
 } from "@vercel/remix";
 import { useLoaderData } from "@remix-run/react";
-import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/helpers/sessions";
 
 type LoaderData = {
   loggedIn: boolean;
@@ -16,9 +14,9 @@ type LoaderData = {
   userId?: string;
 };
 
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({}: LoaderFunctionArgs): Promise<
+  TypedResponse<LoaderData>
+> => {
   return redirect("/blog");
 };
 
