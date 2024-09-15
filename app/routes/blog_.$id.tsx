@@ -1,4 +1,9 @@
-import { json, LoaderFunctionArgs, TypedResponse } from "@vercel/remix";
+import {
+  json,
+  LoaderFunctionArgs,
+  MetaFunction,
+  TypedResponse,
+} from "@vercel/remix";
 import { useLoaderData, useLocation } from "@remix-run/react";
 import ReactMarkdown from "~/components/Markdown";
 import { BlogVersion, getBlog } from "~/.server/blog";
@@ -49,6 +54,10 @@ export const loader = async ({
   });
 };
 
+export const meta: MetaFunction = () => {
+  return [{ title: "Blog | Pierre Quereuil" }];
+};
+
 const BlogViewer = () => {
   const loaderData = useLoaderData<typeof loader>();
   const location = useLocation();
@@ -61,19 +70,6 @@ const BlogViewer = () => {
 
   if (!blog) {
     return <Error404 />;
-  }
-
-  if (isSafari) {
-    return (
-      <div className="m-2">
-        <h2 className="text-lg font-bold">
-          Looks like Safari is bugging out with Markdown for some reason. The
-          following will be the raw md file so not super pretty, but hopefully
-          better than nothing.
-        </h2>
-        <div>{blog?.contentMD}</div>
-      </div>
-    );
   }
 
   return (

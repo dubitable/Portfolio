@@ -1,6 +1,7 @@
 import {
   json,
   LoaderFunctionArgs,
+  MetaFunction,
   redirect,
   TypedResponse,
 } from "@vercel/remix";
@@ -28,6 +29,10 @@ export const loader = async ({
   const username = await getUserInfo(userId);
 
   return json({ loggedIn: true, userId, username });
+};
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Writing | Pierre Quereuil" }];
 };
 
 type Card = {

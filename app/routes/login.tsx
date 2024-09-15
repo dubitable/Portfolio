@@ -2,6 +2,7 @@ import {
   ActionFunctionArgs,
   json,
   LoaderFunctionArgs,
+  MetaFunction,
   redirect,
 } from "@vercel/remix";
 import { Form } from "@remix-run/react";
@@ -10,6 +11,10 @@ import { z } from "zod";
 import { commitSession, getSession } from "~/helpers/sessions";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Login | Pierre Quereuil" }];
+};
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const session = await getSession(request.headers.get("Cookie"));

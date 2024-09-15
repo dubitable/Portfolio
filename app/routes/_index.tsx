@@ -1,6 +1,7 @@
 import {
   json,
   LoaderFunctionArgs,
+  MetaFunction,
   redirect,
   TypedResponse,
 } from "@vercel/remix";
@@ -18,6 +19,10 @@ export const loader = async ({}: LoaderFunctionArgs): Promise<
   TypedResponse<LoaderData>
 > => {
   return redirect("/blog");
+};
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Home | Pierre Quereuil" }];
 };
 
 const Index = () => {

@@ -1,4 +1,9 @@
-import { json, LoaderFunctionArgs, TypedResponse } from "@vercel/remix";
+import {
+  json,
+  LoaderFunctionArgs,
+  MetaFunction,
+  TypedResponse,
+} from "@vercel/remix";
 import { Link, useLoaderData, useLocation } from "@remix-run/react";
 import { getUserInfo } from "~/.server/auth";
 import Footer, { socials } from "~/components/Footer";
@@ -34,8 +39,6 @@ export const loader = async ({
   return json({ loggedIn: true, userId, username });
 };
 
-//#TODO About Page
-
 type AboutMe = {
   title: string;
   text: string;
@@ -43,6 +46,10 @@ type AboutMe = {
   image: string;
   icon: () => JSX.Element;
   extra?: () => JSX.Element;
+};
+
+export const meta: MetaFunction = () => {
+  return [{ title: "About | Pierre Quereuil" }];
 };
 
 const aboutMes = [

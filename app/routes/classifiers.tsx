@@ -2,6 +2,7 @@ import {
   ActionFunctionArgs,
   json,
   LoaderFunctionArgs,
+  MetaFunction,
   TypedResponse,
 } from "@vercel/remix";
 import {
@@ -29,6 +30,10 @@ import BasketballIcon from "~/components/icons/BasketballIcon";
 import HumanIcon from "~/components/icons/HumanIcon";
 import Select from "~/components/Select";
 import { icons } from "~/components/icons/icon";
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Classifiers | Pierre Quereuil" }];
+};
 
 export type Classifier = {
   slug: string;

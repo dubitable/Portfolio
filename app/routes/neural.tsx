@@ -25,9 +25,17 @@ import PlayIcon from "~/components/icons/PlayIcon";
 import PauseIcon from "~/components/icons/PauseIcon";
 import Select from "~/components/Select";
 import { json, useLoaderData, useNavigate } from "@remix-run/react";
-import { LoaderFunctionArgs, TypedResponse } from "@remix-run/node";
+import {
+  LoaderFunctionArgs,
+  MetaFunction,
+  TypedResponse,
+} from "@remix-run/node";
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/helpers/sessions";
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Neural | Pierre Quereuil" }];
+};
 
 const maxIndex = (array: number[]) => {
   return array.reduce(

@@ -2,6 +2,7 @@ import {
   ActionFunctionArgs,
   json,
   LoaderFunctionArgs,
+  MetaFunction,
   redirect,
   redirectDocument,
   TypedResponse,
@@ -35,6 +36,10 @@ import {
 } from "~/.server/blog";
 import BlogCard from "~/components/BlogCard";
 import ImageIcon from "~/components/icons/ImageIcon";
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Blogs | Pierre Quereuil" }];
+};
 
 const formatDate = (date: string) =>
   new Date(date).toISOString().replace(/T/, " ").replace(/\..+/, "");
