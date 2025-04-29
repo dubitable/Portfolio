@@ -95,13 +95,13 @@ const Paper = ({
 
 const papers: Card[] = [
   {
-    name: "Measuring the Madness",
-    className: "STA 199L | Dr. Elijah Meyer",
-    desc: "A Statistical Analysis of How Different College Basketball Seeds Performed in the NCAA Tournament from 1985-2019.",
-    date: "Dec 8, 2023",
-    categories: "Data Science, Sports Analytics, Statistics",
-    href: "https://sta199-f23-1.github.io/project-f23-1-merge_conflict/report.html",
-    src: "/writing/march.png",
+    name: "How Far Will Your Favorite Team Go in NCAA March Madness?",
+    className: "STA 221 | Dr. Tackett",
+    desc: "Using Advanced College Basketball Metrics to Predict a Perfect Bracket.",
+    date: "Apr 28, 2025",
+    categories: "Data Science, Sports Analytics",
+    href: "/writing/tournament.pdf",
+    src: "/writing/basketball.png",
   },
   {
     name: "La Poésie Yoruba et l'Intraduisible",
@@ -111,6 +111,24 @@ const papers: Card[] = [
     categories: "African Languages, Yoruba Poetry, Philosophy and Literature",
     href: "/writing/poesieyoruba.pdf",
     src: "/writing/yoruba.png",
+  },
+  {
+    name: "District Bias in North Carolina",
+    className: "CS 216 | Dr. Stephens-Martinez",
+    desc: "Introducing a Novel Approach to Identifying Gerrymandered Districts Using Geospatial Data",
+    date: "Dec 6, 2024",
+    categories: "Geodata, Gerrymandering",
+    href: "/writing/districtbias.pdf",
+    src: "/writing/gerrymander.png",
+  },
+  {
+    name: "Measuring the Madness",
+    className: "STA 199L | Dr. Elijah Meyer",
+    desc: "A Statistical Analysis of How Different College Basketball Seeds Performed in the NCAA Tournament from 1985-2019",
+    date: "Dec 8, 2023",
+    categories: "Data Science, Sports Analytics, Statistics",
+    href: "https://sta199-f23-1.github.io/project-f23-1-merge_conflict/report.html",
+    src: "/writing/march.png",
   },
 ];
 
