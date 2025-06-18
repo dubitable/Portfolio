@@ -1,4 +1,4 @@
-import { redirect, useLoaderData } from "react-router";
+import { redirect } from "react-router";
 import { Route } from "./+types/index";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
@@ -12,7 +12,6 @@ export const meta = ({}: Route.MetaArgs) => {
 };
 
 const Index = () => {
-  const user = useLoaderData<typeof loader>();
   return (
     <div className="h-screen bg-white flex flex-col justify-between align-items">
       <Header />
