@@ -1,34 +1,21 @@
-import {
-  json,
-  LoaderFunctionArgs,
-  MetaFunction,
-  redirect,
-  TypedResponse,
-} from "@vercel/remix";
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "react-router";
+import { useLoaderData } from "react-router";
 import { getUserInfo } from "~/.server/auth";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/helpers/sessions";
+import { getSession } from "~/lib/sessions";
+import { Route } from "./+types/writing";
 
-type LoaderData = {
-  loggedIn: boolean;
-  username?: string;
-  userId?: string;
-};
-
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
 
   const userId = session.get("userId");
 
-  if (!userId) return json({ loggedIn: false });
+  if (!userId) return { loggedIn: false };
 
   const username = await getUserInfo(userId);
 
-  return json({ loggedIn: true, userId, username });
+  return { loggedIn: true, userId, username };
 };
 
 export const meta: MetaFunction = () => {
@@ -54,7 +41,7 @@ const Paper = ({
     <a
       href={href}
       target="_blank"
-      className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
+      className="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8 mx-10"
     >
       <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
 
@@ -135,9 +122,9 @@ const papers: Card[] = [
 const Writing = () => {
   const user = useLoaderData<typeof loader>();
   return (
-    <div className="h-screen bg-white flex flex-col justify-between align-items">
+    <div className="h-full bg-white flex flex-col justify-between align-items overflow-visible">
       <Header username={user.username} />
-      <div className="flex flex-col justify-center gap-10 mx-5 sm:mx-20">
+      <div className="flex flex-col justify-center gap-10 mx-5 sm:mx-20-">
         {papers.map((paper, index) => (
           <div key={index}>
             <Paper paper={paper} />

@@ -4,8 +4,8 @@ const ReplayIcon = () => (
   <svg
     className="hover:opacity-85"
     color={"rgb(156 163 175)"}
-    stroke="currentColor"
-    fill="currentColor"
+    stroke="black"
+    fill="black"
     strokeWidth="0"
     viewBox="0 0 16 16"
     height="100%"

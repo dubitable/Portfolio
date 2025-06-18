@@ -2,7 +2,7 @@ const InstaIcon = () => {
   return (
     <svg
       className="h-6 w-6"
-      fill="currentColor"
+      fill="black"
       viewBox="0 0 24 24"
       aria-hidden="true"
     >

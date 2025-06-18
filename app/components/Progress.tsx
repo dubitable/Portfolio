@@ -1,5 +1,6 @@
-import { capitalize } from "~/helpers/string";
+import { capitalize } from "~/lib/string";
 import PlusIcon from "./icons/PlusIcon";
+import { JSX } from "react";
 
 const Progress = ({
   classifiers,

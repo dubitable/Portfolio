@@ -1,35 +1,38 @@
 import {
-  ActionFunctionArgs,
-  json,
-  LoaderFunctionArgs,
   MetaFunction,
-  TypedResponse,
-} from "@vercel/remix";
-import {
   Form,
   useActionData,
   useLoaderData,
   useSubmit,
-} from "@remix-run/react";
+} from "react-router";
+import { CSSProperties, FormEvent, JSX, useEffect, useState } from "react";
+
+import { z } from "zod";
+
 import { getUserInfo } from "~/.server/auth";
 import { getImageUrl } from "~/.server/image";
+import { getSession } from "~/lib/sessions";
+import { Client, FileData } from "@gradio/client";
+import { Command } from "node_modules/@gradio/client/dist/types";
+
+// components
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/helpers/sessions";
-import { Client, FileData, handle_file } from "@gradio/client";
-import { z } from "zod";
-import { CSSProperties, FormEvent, useEffect, useState } from "react";
+import FancyButton from "~/components/FancyButton";
+import Progress from "~/components/Progress";
+import Select from "~/components/Select";
+import { icons } from "~/components/icons/icon";
+
+// icons
+import HumanIcon from "~/components/icons/HumanIcon";
+import BasketballIcon from "~/components/icons/BasketballIcon";
 import ImageIcon from "~/components/icons/ImageIcon";
+
+// images
 import mj from "/assets/mj.jpg";
 import biles from "/assets/biles.webp";
 import loading from "/assets/loading.gif";
-import { Command } from "node_modules/@gradio/client/dist/types";
-import FancyButton from "~/components/FancyButton";
-import Progress from "~/components/Progress";
-import BasketballIcon from "~/components/icons/BasketballIcon";
-import HumanIcon from "~/components/icons/HumanIcon";
-import Select from "~/components/Select";
-import { icons } from "~/components/icons/icon";
+import { Route } from "./+types/classifiers";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Classifiers | Pierre Quereuil" }];
@@ -77,27 +80,18 @@ const classifiers = [
   },
 ] as Classifier[];
 
-type LoaderData = {
-  ENV: { HUGGING_FACE_KEY: string };
-  loggedIn: boolean;
-  username?: string;
-  userId?: string;
-};
-
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
 
   const ENV = { HUGGING_FACE_KEY: process.env.HUGGING_FACE_KEY ?? "" };
 
   const userId = session.get("userId");
 
-  if (!userId) return json({ loggedIn: false, ENV });
+  if (!userId) return { loggedIn: false, ENV };
 
   const username = await getUserInfo(userId);
 
-  return json({ loggedIn: true, userId, username, ENV });
+  return { loggedIn: true, userId, username, ENV };
 };
 
 type ActionData = {
@@ -113,21 +107,19 @@ type ActionData = {
   };
 };
 
-export const action = async ({
-  request,
-}: ActionFunctionArgs): Promise<TypedResponse<ActionData>> => {
+export const action = async ({ request }: Route.ActionArgs) => {
   const formData = await request.formData();
 
   if (formData.get("action") == "reset") {
-    return json({});
+    return {};
   }
 
   if (formData.get("action") == "uploadImage") {
     const url = await getImageUrl(formData);
-    return json({ imageUrl: url });
+    return { imageUrl: url };
   }
 
-  return json({
+  return {
     classifier: {
       name: formData.get("name") as string,
       desc: formData.get("desc") as string,
@@ -137,7 +129,7 @@ export const action = async ({
       image: (formData.get("imageUrl") ?? "") as string,
       icon: formData.get("Icon") as string,
     },
-  });
+  };
 };
 
 const predictionSchema = z.object({

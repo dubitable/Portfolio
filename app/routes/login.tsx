@@ -1,22 +1,16 @@
-import {
-  ActionFunctionArgs,
-  json,
-  LoaderFunctionArgs,
-  MetaFunction,
-  redirect,
-} from "@vercel/remix";
-import { Form } from "@remix-run/react";
+import { MetaFunction, redirect, Form } from "react-router";
 import { login, LoginError, LoginErrors } from "~/.server/auth";
 import { z } from "zod";
-import { commitSession, getSession } from "~/helpers/sessions";
+import { commitSession, getSession } from "~/lib/sessions";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+import { Route } from "./+types/login";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Login | Pierre Quereuil" }];
 };
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
   const userId = session.get("userId");
 
@@ -30,7 +24,7 @@ const User = z.object({
   password: z.string(),
 });
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action = async ({ request }: Route.ActionArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
   const formData = await request.formData();
 
@@ -40,12 +34,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   };
 
   const { error, data } = User.safeParse(user);
-  if (error) return json({ success: false, error: "parse" });
+  if (error) return { success: false, error: "parse" };
 
   const userId = await login(data);
 
   if (LoginErrors.includes(userId as LoginError))
-    return json({ success: false, error: userId });
+    return { success: false, error: userId };
 
   session.set("userId", userId);
 

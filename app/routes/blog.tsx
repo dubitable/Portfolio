@@ -1,18 +1,5 @@
-import {
-  ActionFunctionArgs,
-  json,
-  LoaderFunctionArgs,
-  MetaFunction,
-  redirect,
-  redirectDocument,
-  TypedResponse,
-} from "@vercel/remix";
-import {
-  Form,
-  useActionData,
-  useLoaderData,
-  useSubmit,
-} from "@remix-run/react";
+import { redirectDocument } from "react-router";
+import { Form, useActionData, useLoaderData, useSubmit } from "react-router";
 import {
   FormEvent,
   MutableRefObject,
@@ -20,12 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { getUserInfo } from "~/.server/auth";
-import FancyButton from "~/components/FancyButton";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import { getSession } from "~/helpers/sessions";
-import ReactMarkdown from "~/components/Markdown";
+
 import { z } from "zod";
 import {
   BlogVersion,
@@ -34,10 +16,21 @@ import {
   publishBlog,
   saveBlog,
 } from "~/.server/blog";
+import { getUserInfo } from "~/.server/auth";
+import { getSession } from "~/lib/sessions";
+import { Route } from "./+types/blog";
+
+// components
+import FancyButton from "~/components/FancyButton";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import ReactMarkdown from "~/components/Markdown";
 import BlogCard from "~/components/BlogCard";
+
+// icons
 import ImageIcon from "~/components/icons/ImageIcon";
 
-export const meta: MetaFunction = () => {
+export const meta = ({}: Route.LoaderArgs) => {
   return [{ title: "Blogs | Pierre Quereuil" }];
 };
 
@@ -52,25 +45,17 @@ const toBase64 = (file: File): Promise<string | ArrayBuffer | null> =>
     reader.onerror = () => reject();
   });
 
-type LoaderData = {
-  success: boolean;
-  user?: { id: string; username: string };
-  blogs: BlogVersion[];
-};
-
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
   const userId = session.get("userId");
 
   const blogs = await getBlogs(userId);
 
-  if (!userId) return json({ success: false, blogs });
+  if (!userId) return { success: false, blogs };
 
   const username = await getUserInfo(userId);
 
-  return json({ success: true, user: { id: userId, username }, blogs });
+  return { success: true, user: { id: userId, username }, blogs };
 };
 
 const BlogPost = z.object({
@@ -79,19 +64,7 @@ const BlogPost = z.object({
   blogId: z.string(),
 });
 
-type ActionData = {
-  success: boolean;
-  blogId?: string;
-  versionId?: string;
-  lastPublished?: Date;
-  lastSaved?: Date;
-  error?: string;
-  url?: string;
-};
-
-export const action = async ({
-  request,
-}: ActionFunctionArgs): Promise<TypedResponse<ActionData>> => {
+export const action = async ({ request }: Route.ActionArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
   const userId = session.get("userId");
 
@@ -99,21 +72,21 @@ export const action = async ({
 
   if (formData.get("action") == "image") {
     const key = process.env.IMAGE_BB_KEY;
-    if (!key) return json({ success: false, error: "key" });
+    if (!key) return { success: false, error: "key" };
 
     const result = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, {
       method: "POST",
       body: formData,
     });
 
-    if (result.status != 200) return json({ success: false, error: "api" });
+    if (result.status != 200) return { success: false, error: "api" };
 
     const { data } = await result.json();
 
-    return json({ success: true, url: data.url as string });
+    return { success: true, url: data.url as string };
   }
 
-  if (!userId) return json({ success: false, error: "user" });
+  if (!userId) return { success: false, error: "user" };
 
   const blog = {
     contentMD: formData.get("contentMD"),
@@ -122,35 +95,35 @@ export const action = async ({
   };
 
   const { error, data } = BlogPost.safeParse(blog);
-  if (error) return json({ success: false, error: "parse" });
+  if (error) return { success: false, error: "parse" };
 
   const { action, contentMD, blogId } = data;
   const bid = blogId == "" ? undefined : blogId;
 
   if (action == "save") {
-    if (bid) return json({ success: false, error: "exists" });
+    if (bid) return { success: false, error: "exists" };
 
     const savedBlog = await saveBlog(contentMD, userId);
 
-    if (!savedBlog) return json({ success: false, error: "blog" });
+    if (!savedBlog) return { success: false, error: "blog" };
 
-    return json({
+    return {
       success: true,
       blogId: savedBlog.id,
       lastSaved: savedBlog.createdAt,
-    });
+    };
   }
 
   if (action == "publish") {
     const publishedBlog = await publishBlog(contentMD, userId, bid);
-    if (!publishedBlog) return json({ success: false, error: "publish" });
+    if (!publishedBlog) return { success: false, error: "publish" };
 
-    return json({
+    return {
       success: true,
       blogId: publishedBlog.id,
       lastSaved: publishedBlog.createdAt,
       lastPublished: publishedBlog.updatedAt,
-    });
+    };
   }
 
   if (action == "delete") {
@@ -162,7 +135,7 @@ export const action = async ({
     }
   }
 
-  return json({ success: false, error: "action" });
+  return { success: false, error: "action" };
 };
 
 const Blogs = ({
@@ -318,7 +291,7 @@ const BlogWrite = ({
 
   const blogId = blogVersion?.id ?? actionData?.blogId;
 
-  const ref = useRef() as MutableRefObject<HTMLTextAreaElement>;
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   return (
     <div className="w-full">
@@ -474,7 +447,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="h-screen bg-white flex flex-col justify-between">
+    <div className="h-full bg-white flex flex-col justify-between">
       <Header username={user?.username} />
       {isWriting ? (
         <BlogWrite

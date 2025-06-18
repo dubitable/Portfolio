@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router";
+import { Route } from "./+types/neural";
+
+import { getUserInfo } from "~/.server/auth";
+
 import {
   TrainingData,
   HeatMapDims,
@@ -6,12 +11,8 @@ import {
   pointColorMap,
   pointColors,
   HeatData,
-} from "../helpers/heatmap";
-import HeatMap from "~/components/HeatMap";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import colors from "~/components/colors/colors";
-import { Dataset, Feature } from "~/helpers/dataset";
+} from "../lib/heatmap";
+import { Dataset, Feature } from "~/lib/dataset";
 import {
   Activation,
   ActivationLayer,
@@ -19,21 +20,22 @@ import {
   Loss,
   Matrix,
   Network,
-} from "~/helpers/neural";
+} from "~/lib/neural";
+import { getSession } from "~/lib/sessions";
+
+// components
+import HeatMap from "~/components/HeatMap";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import colors from "~/components/colors/colors";
+import Select from "~/components/Select";
+
+// icons
 import ReplayIcon from "~/components/icons/ReplayIcon";
 import PlayIcon from "~/components/icons/PlayIcon";
 import PauseIcon from "~/components/icons/PauseIcon";
-import Select from "~/components/Select";
-import { json, useLoaderData, useNavigate } from "@remix-run/react";
-import {
-  LoaderFunctionArgs,
-  MetaFunction,
-  TypedResponse,
-} from "@remix-run/node";
-import { getUserInfo } from "~/.server/auth";
-import { getSession } from "~/helpers/sessions";
 
-export const meta: MetaFunction = () => {
+export const meta = ({}: Route.MetaArgs) => {
   return [{ title: "Neural | Pierre Quereuil" }];
 };
 
@@ -62,24 +64,16 @@ learningOptions.push("0.01", "0.03", "0.1", "0.3", "1", "3", "10");
 
 const activationOptions = ["tanh", "sigmoid", "relu", "linear"] as const;
 
-type LoaderData = {
-  loggedIn: boolean;
-  username?: string;
-  userId?: string;
-};
-
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
 
   const userId = session.get("userId");
 
-  if (!userId) return json({ loggedIn: false });
+  if (!userId) return { loggedIn: false };
 
   const username = await getUserInfo(userId);
 
-  return json({ loggedIn: true, userId, username });
+  return { loggedIn: true, userId, username };
 };
 
 const Neural = () => {

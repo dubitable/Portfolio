@@ -1,5 +1,5 @@
-import { Blog, PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { Blog } from "@prisma-app/client";
+import prisma from "./prisma";
 
 export const saveBlog = async (
   contentMD: string,

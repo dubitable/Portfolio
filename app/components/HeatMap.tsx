@@ -6,7 +6,7 @@ import {
   PointColor,
   HeatData,
   pointColorMap,
-} from "~/helpers/heatmap";
+} from "~/lib/heatmap";
 
 type ChartProps = {
   data?: TrainingData;
