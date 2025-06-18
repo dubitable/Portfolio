@@ -51,7 +51,7 @@ const GlobeViz = ({
         color: "red",
       },
     ];
-  }, [route]);
+  }, [route, showRoute]);
 
   const arcLayer = {
     arcsData: gData,
