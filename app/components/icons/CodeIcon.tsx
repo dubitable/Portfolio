@@ -1,8 +1,8 @@
 const CodeIcon = () => {
   return (
     <svg
-      stroke="currentColor"
-      fill="currentColor"
+      stroke="black"
+      fill="black"
       strokeWidth="0"
       viewBox="0 0 640 512"
       className="size-6"

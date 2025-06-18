@@ -1,8 +1,8 @@
 const FireIcon = () => {
   return (
     <svg
-      stroke="currentColor"
-      fill="currentColor"
+      stroke="black"
+      fill="black"
       strokeWidth="0"
       version="1.1"
       viewBox="0 0 16 16"

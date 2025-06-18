@@ -1,42 +1,33 @@
-import {
-  json,
-  LoaderFunctionArgs,
-  MetaFunction,
-  TypedResponse,
-} from "@vercel/remix";
-import { Link, useLoaderData, useLocation } from "@remix-run/react";
+import { MetaFunction, useLoaderData, useLocation } from "react-router";
+import { JSX, useEffect, useRef, useState } from "react";
+import { Route } from "../+types/root";
+
 import { getUserInfo } from "~/.server/auth";
+import { getSession } from "~/lib/sessions";
+
+// components
 import Footer, { socials } from "~/components/Footer";
 import Header from "~/components/Header";
-import { getSession } from "~/helpers/sessions";
+import Modal from "~/components/Modal";
+
+// icons
 import ProfileIcon from "~/components/icons/ProfileIcon";
+import SkiIcon from "~/components/icons/SkiIcon";
 import EducationIcon from "~/components/icons/EducationIcon";
 import CodeIcon from "~/components/icons/CodeIcon";
 import BasketballIcon from "~/components/icons/BasketballIcon";
-import WorldIcon from "~/components/icons/WorldIcon";
 import LinkIcon from "~/components/icons/LinkIcon";
-import { useEffect, useRef, useState } from "react";
-import SkiIcon from "~/components/icons/SkiIcon";
-import Modal from "~/components/Modal";
 
-type LoaderData = {
-  loggedIn: boolean;
-  username?: string;
-  userId?: string;
-};
-
-export const loader = async ({
-  request,
-}: LoaderFunctionArgs): Promise<TypedResponse<LoaderData>> => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));
 
   const userId = session.get("userId");
 
-  if (!userId) return json({ loggedIn: false });
+  if (!userId) return { loggedIn: false };
 
   const username = await getUserInfo(userId);
 
-  return json({ loggedIn: true, userId, username });
+  return { loggedIn: true, userId, username };
 };
 
 type AboutMe = {
@@ -48,7 +39,7 @@ type AboutMe = {
   extra?: () => JSX.Element;
 };
 
-export const meta: MetaFunction = () => {
+export const meta = ({}: Route.MetaArgs) => {
   return [{ title: "About | Pierre Quereuil" }];
 };
 
@@ -62,7 +53,7 @@ const aboutMes = [
   },
   {
     title: "Education",
-    text: "I'm currently a sophomore (class of '27) at Duke University studying Computer Science, planning on double majoring with Statistical Science. Being completely unbiased, I can guarantee that it's the best college ever.",
+    text: "I'm currently a rising junior (class of '27) at Duke University studying Computer Science, planning on double majoring with Statistical Science. DDMF!!",
     desc: "Computer Science @ Duke University",
     image: "/about/duke.jpeg",
     icon: () => <EducationIcon />,
@@ -92,8 +83,8 @@ const aboutMes = [
   },
   {
     title: "Hobbies",
-    text: "I think I'd qualify myself as an outside person - I'm not often happier than when I'm speeding down slopes in deep powder or finding a super cool viewpoint in another country. Relaxing and reading Camus or playing Titanfall 2 might be exceptions though.",
-    desc: "Skiing, Traveling, Philosophy",
+    text: "Cutting through pow, watching weird movies, listening to dad rock...",
+    desc: "Skiing, Traveling, Reading",
     image: "/about/ski.jpeg",
     icon: () => <SkiIcon />,
   },
@@ -113,7 +104,8 @@ const aboutMes = [
                 target="_blank"
                 className="flex justify-center gap-2"
               >
-                {social.icon()}
+                <div>{social.icon()}</div>
+
                 <div className="underline text-blue-500">{social.name}</div>
               </a>
             </li>
@@ -198,6 +190,7 @@ const ModalFrame = ({ aboutMe }: { aboutMe: AboutMe }) => {
 
 const About = () => {
   const user = useLoaderData<typeof loader>();
+
   const ref = useRef<HTMLDivElement>(null);
 
   const location = useLocation();

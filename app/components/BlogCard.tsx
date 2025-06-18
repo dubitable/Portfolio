@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { format } from "light-date";
 import colors from "./colors/colors";
 import { BlogVersion } from "~/.server/blog";

@@ -1,4 +1,4 @@
-import { createCookieSessionStorage } from "@vercel/remix";
+import { createCookieSessionStorage } from "react-router";
 
 type SessionData = {
   userId: string;
