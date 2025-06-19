@@ -4,7 +4,7 @@ import Markdown from "markdown-to-jsx";
 
 const ReactMarkdown = ({ children }: { children: string }) => {
   return (
-    <div className="prose">
+    <div className="prose lg:prose-xl">
       <Markdown>{children}</Markdown>
     </div>
   );

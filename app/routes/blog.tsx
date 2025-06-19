@@ -1,12 +1,6 @@
 import { redirectDocument } from "react-router";
 import { Form, useActionData, useLoaderData, useSubmit } from "react-router";
-import {
-  FormEvent,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 import { z } from "zod";
 import {
@@ -311,7 +305,7 @@ const BlogWrite = ({
               id="markdown"
               rows={21}
               ref={ref}
-              className="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm resize-none"
+              className="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm resize-none text-black"
             />
           </div>
           <input
