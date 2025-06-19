@@ -58,7 +58,7 @@ const BlogViewer = ({ loaderData }: Route.ComponentProps) => {
   }
 
   return (
-    <div className="h-full bg-black flex flex-col justify-between">
+    <div className="h-full bg-white flex flex-col justify-between">
       <Header username={loaderData.username} />
       <div className="flex justify-center align-middle mx-10 mt-10">
         <ReactMarkdown>{blog.contentMD}</ReactMarkdown>
