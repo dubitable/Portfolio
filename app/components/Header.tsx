@@ -27,18 +27,9 @@ const Links = () => {
       <li>
         <a
           className="text-gray-500 transition hover:text-gray-500/75"
-          href="/neural"
+          href="/projects"
         >
-          Neural Playground
-        </a>
-      </li>
-
-      <li>
-        <a
-          className="text-gray-500 transition hover:text-gray-500/75"
-          href="/classifiers"
-        >
-          Classifiers
+          Projects
         </a>
       </li>
 

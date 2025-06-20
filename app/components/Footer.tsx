@@ -62,7 +62,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/neural"
+                href="/projects/neural"
                 className="text-gray-500 transition hover:opacity-75"
               >
                 Something Cool

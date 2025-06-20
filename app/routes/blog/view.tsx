@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from "react-router";
+import { useLocation } from "react-router";
 
 import { getBlog } from "~/.server/blog";
 import { getUserInfo } from "~/.server/auth";
@@ -9,7 +9,7 @@ import ReactMarkdown from "~/components/Markdown";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import Error404 from "~/components/404";
-import { Route } from "./+types/blog_.$id";
+import { Route } from "./+types/view";
 
 export const loader = async ({ params, request }: Route.LoaderArgs) => {
   if (params?.id == "temp") {

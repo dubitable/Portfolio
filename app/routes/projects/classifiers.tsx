@@ -16,8 +16,6 @@ import { Client, FileData } from "@gradio/client";
 import { Command } from "node_modules/@gradio/client/dist/types";
 
 // components
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
 import FancyButton from "~/components/FancyButton";
 import Progress from "~/components/Progress";
 import Select from "~/components/Select";
@@ -92,19 +90,6 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
   const username = await getUserInfo(userId);
 
   return { loggedIn: true, userId, username, ENV };
-};
-
-type ActionData = {
-  imageUrl?: string;
-  classifier?: {
-    name: string;
-    desc: string;
-    longdesc: string;
-    space: string;
-    endpoint: string;
-    image: string;
-    icon: string;
-  };
 };
 
 export const action = async ({ request }: Route.ActionArgs) => {
@@ -488,8 +473,7 @@ const Index = () => {
   const [elements, setElements] = useState(classifiers);
 
   return (
-    <div className="h-screen bg-white flex flex-col justify-between align-items">
-      <Header username={loaderData.username} />
+    <div className="h-full bg-white">
       <Progress
         classifiers={elements}
         current={current}
@@ -509,7 +493,6 @@ const Index = () => {
           }
         />
       )}
-      <Footer />
     </div>
   );
 };

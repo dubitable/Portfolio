@@ -1,7 +1,7 @@
 import { Route } from "./+types/flights";
-import { FlightClient } from "../lib/flightclient";
+import { FlightClient } from "../../lib/flightclient";
 
-import type { Route as Departure } from "../schemas/flights";
+import type { Route as Departure } from "../../schemas/flights";
 
 import Globe from "~/components/flights/Globe.client";
 import { JSX, useEffect, useState } from "react";
