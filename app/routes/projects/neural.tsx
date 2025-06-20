@@ -11,7 +11,7 @@ import {
   pointColorMap,
   pointColors,
   HeatData,
-} from "../lib/heatmap";
+} from "../../lib/heatmap";
 import { Dataset, Feature } from "~/lib/dataset";
 import {
   Activation,
@@ -25,8 +25,6 @@ import { getSession } from "~/lib/sessions";
 
 // components
 import HeatMap from "~/components/HeatMap";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
 import colors from "~/components/colors/colors";
 import Select from "~/components/Select";
 
@@ -254,8 +252,7 @@ const Neural = () => {
   }, [isTraining]);
 
   return (
-    <div className="h-screen bg-white flex flex-col justify-between align-items">
-      <Header username={user.username} />
+    <div className="h-full bg-white mt-40">
       <div className="flex align-items bg-gray-50 h-full mt-16 mx-8 rounded-lg">
         <div className="flex flex-col w-1/3 m-4 rounded-lg">
           <div className="flex h-1/4 m-1 rounded">
@@ -637,7 +634,6 @@ const Neural = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

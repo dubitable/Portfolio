@@ -12,7 +12,7 @@ import {
 } from "~/.server/blog";
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/lib/sessions";
-import { Route } from "./+types/blog";
+import { Route } from "./+types/list";
 
 // components
 import FancyButton from "~/components/FancyButton";

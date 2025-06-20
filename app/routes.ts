@@ -5,18 +5,29 @@ import {
   route,
 } from "@react-router/dev/routes";
 
+const fallback = route(
+  "/.well-known/appspecific/com.chrome.devtools.json",
+  "routes/fallback.tsx"
+);
+
 export default [
+  fallback,
   index("routes/index.tsx"),
+  route("login", "routes/login.tsx"),
   route("about", "routes/about.tsx"),
   route("writing", "routes/writing.tsx"),
-  route("login", "routes/login.tsx"),
-  route("classifiers", "routes/classifiers.tsx"),
-  route("neural", "routes/neural.tsx"),
-  route("blog", "routes/blog.tsx"),
-  route("blog/:id", "routes/blog_.$id.tsx"),
-  route(
-    "/.well-known/appspecific/com.chrome.devtools.json",
-    "routes/fallback.tsx"
-  ),
-  ...prefix("projects", [route("flights", "routes/flights.tsx")]),
+
+  // blog
+  ...prefix("blog", [
+    index("routes/blog/list.tsx"),
+    route("/:id", "routes/blog/view.tsx"),
+  ]),
+
+  // projects
+  ...prefix("projects", [
+    index("routes/projects/list.tsx"),
+    route("neural", "routes/projects/neural.tsx"),
+    route("flights", "routes/projects/flights.tsx"),
+    route("classifiers", "routes/projects/classifiers.tsx"),
+  ]),
 ] satisfies RouteConfig;
