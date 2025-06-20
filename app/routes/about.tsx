@@ -163,7 +163,7 @@ const Preview = ({
     >
       <span className="inline-block rounded-lg bg-gray-50 p-3">{icon()}</span>
 
-      <h2 className="mt-2 font-bold">{title}</h2>
+      <h2 className="mt-2 font-bold text-black">{title}</h2>
 
       <div className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
         {desc}

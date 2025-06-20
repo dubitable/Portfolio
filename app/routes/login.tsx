@@ -68,7 +68,7 @@ const Login = () => {
             method="POST"
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
-            <p className="text-center text-lg font-medium">
+            <p className="text-center text-lg font-medium text-black">
               Sign in to your account
             </p>
 
@@ -82,7 +82,7 @@ const Login = () => {
                   type="username"
                   name="username"
                   id="username"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm text-black"
                   placeholder="Enter username"
                 />
 
@@ -115,7 +115,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   id="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm text-black"
                   placeholder="Enter password"
                 />
 

@@ -4,7 +4,7 @@ import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 
 export const loader = async ({}: Route.LoaderArgs) => {
-  return redirect("/about");
+  return redirect("/blog");
 };
 
 export const meta = ({}: Route.MetaArgs) => {
