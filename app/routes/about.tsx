@@ -1,6 +1,6 @@
-import { MetaFunction, useLoaderData, useLocation } from "react-router";
+import { useLoaderData, useLocation } from "react-router";
 import { JSX, useEffect, useRef, useState } from "react";
-import { Route } from "../+types/root";
+import { Route } from "./+types/about";
 
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/lib/sessions";
