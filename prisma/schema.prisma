@@ -35,3 +35,8 @@ model Blog {
   userId    String   @db.ObjectId
   username  String
 }
+
+model Link {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  link String
+}
