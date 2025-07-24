@@ -1,0 +1,234 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/fallback": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/login": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/about": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/writing": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/blog/list": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/blog/view": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects/list": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects/neural": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects/flights": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects/classifiers": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "app/root.tsx",
+        "config": {}
+      },
+      "routes/fallback": {
+        "id": "routes/fallback",
+        "parentId": "root",
+        "file": "app/routes/fallback.tsx",
+        "path": "/.well-known/appspecific/com.chrome.devtools.json",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/index": {
+        "id": "routes/index",
+        "parentId": "root",
+        "file": "app/routes/index.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/login": {
+        "id": "routes/login",
+        "parentId": "root",
+        "file": "app/routes/login.tsx",
+        "path": "login",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/about": {
+        "id": "routes/about",
+        "parentId": "root",
+        "file": "app/routes/about.tsx",
+        "path": "about",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/writing": {
+        "id": "routes/writing",
+        "parentId": "root",
+        "file": "app/routes/writing.tsx",
+        "path": "writing",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/blog/list": {
+        "id": "routes/blog/list",
+        "parentId": "root",
+        "file": "app/routes/blog/list.tsx",
+        "path": "blog",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/blog/view": {
+        "id": "routes/blog/view",
+        "parentId": "root",
+        "file": "app/routes/blog/view.tsx",
+        "path": "blog/:id",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/projects/list": {
+        "id": "routes/projects/list",
+        "parentId": "root",
+        "file": "app/routes/projects/list.tsx",
+        "path": "projects",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/projects/neural": {
+        "id": "routes/projects/neural",
+        "parentId": "root",
+        "file": "app/routes/projects/neural.tsx",
+        "path": "projects/neural",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/projects/flights": {
+        "id": "routes/projects/flights",
+        "parentId": "root",
+        "file": "app/routes/projects/flights.tsx",
+        "path": "projects/flights",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/projects/classifiers": {
+        "id": "routes/projects/classifiers",
+        "parentId": "root",
+        "file": "app/routes/projects/classifiers.tsx",
+        "path": "projects/classifiers",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "/Users/pierrequereuil/Desktop/Portfolio/app",
+    "basename": "/",
+    "buildDirectory": "/Users/pierrequereuil/Desktop/Portfolio/build",
+    "future": {
+      "unstable_middleware": false,
+      "unstable_optimizeDeps": false,
+      "unstable_splitRouteModules": false,
+      "unstable_subResourceIntegrity": false,
+      "unstable_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "routes/fallback": {
+        "id": "routes/fallback",
+        "parentId": "root",
+        "file": "routes/fallback.tsx",
+        "path": "/.well-known/appspecific/com.chrome.devtools.json"
+      },
+      "routes/index": {
+        "id": "routes/index",
+        "parentId": "root",
+        "file": "routes/index.tsx",
+        "index": true
+      },
+      "routes/login": {
+        "id": "routes/login",
+        "parentId": "root",
+        "file": "routes/login.tsx",
+        "path": "login"
+      },
+      "routes/about": {
+        "id": "routes/about",
+        "parentId": "root",
+        "file": "routes/about.tsx",
+        "path": "about"
+      },
+      "routes/writing": {
+        "id": "routes/writing",
+        "parentId": "root",
+        "file": "routes/writing.tsx",
+        "path": "writing"
+      },
+      "routes/blog/list": {
+        "id": "routes/blog/list",
+        "parentId": "root",
+        "file": "routes/blog/list.tsx",
+        "path": "blog",
+        "index": true
+      },
+      "routes/blog/view": {
+        "id": "routes/blog/view",
+        "parentId": "root",
+        "file": "routes/blog/view.tsx",
+        "path": "blog/:id"
+      },
+      "routes/projects/list": {
+        "id": "routes/projects/list",
+        "parentId": "root",
+        "file": "routes/projects/list.tsx",
+        "path": "projects",
+        "index": true
+      },
+      "routes/projects/neural": {
+        "id": "routes/projects/neural",
+        "parentId": "root",
+        "file": "routes/projects/neural.tsx",
+        "path": "projects/neural"
+      },
+      "routes/projects/flights": {
+        "id": "routes/projects/flights",
+        "parentId": "root",
+        "file": "routes/projects/flights.tsx",
+        "path": "projects/flights"
+      },
+      "routes/projects/classifiers": {
+        "id": "routes/projects/classifiers",
+        "parentId": "root",
+        "file": "routes/projects/classifiers.tsx",
+        "path": "projects/classifiers"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
