@@ -40,16 +40,16 @@ const projects: Project[] = [
     href: "/projects/neural",
     src: "/projects/neural.png",
   },
-  {
-    name: "Classifiers",
-    subtitle:
-      "Multiple hand-trained Tensorflow classification machine learning models shipped with Gradio.",
-    desc: "",
-    date: "Aug 29, 2024",
-    categories: "AI, Tensorflow, Gradio",
-    href: "/projects/classifiers",
-    src: "/projects/classifiers.png",
-  },
+  // {
+  //   name: "Classifiers",
+  //   subtitle:
+  //     "Multiple hand-trained Tensorflow classification machine learning models shipped with Gradio.",
+  //   desc: "",
+  //   date: "Aug 29, 2024",
+  //   categories: "AI, Tensorflow, Gradio",
+  //   href: "/projects/classifiers",
+  //   src: "/projects/classifiers.png",
+  // },
 ];
 
 const Projects = ({ loaderData }: Route.ComponentProps) => {

@@ -28,6 +28,5 @@ export default [
     index("routes/projects/list.tsx"),
     route("neural", "routes/projects/neural.tsx"),
     route("flights", "routes/projects/flights.tsx"),
-    route("classifiers", "routes/projects/classifiers.tsx"),
   ]),
 ] satisfies RouteConfig;
