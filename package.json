@@ -6,12 +6,9 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "clear": "rm -rf node_modules && rm package-lock.json && npm install && npx prisma generate",
-    "reset": "npm run clear && npm run dev"
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@gradio/client": "^1.15.2",
     "@prisma/client": "^6.10.0",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
