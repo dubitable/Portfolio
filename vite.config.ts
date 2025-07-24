@@ -6,4 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   ssr: { noExternal: ["@prisma/client"] },
+  optimizeDeps: {
+    include: ["@gradio/client"],
+  },
 });
