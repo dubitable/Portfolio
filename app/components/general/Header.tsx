@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import SideMenu from "./SideMenu";
+import SideMenu from "../general/SideMenu";
 import { useState } from "react";
 
 const Links = () => {

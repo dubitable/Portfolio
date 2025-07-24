@@ -1,5 +1,5 @@
 import { ScaleLinear, scaleLinear } from "d3";
-import colors from "./colors/colors";
+import colors from "../colors/colors";
 import {
   TrainingData,
   HeatMapDims,

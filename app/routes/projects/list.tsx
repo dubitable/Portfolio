@@ -1,11 +1,11 @@
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
+import Footer from "~/components/general/Footer";
+import Header from "~/components/general/Header";
 
 import { Route } from "./+types/list";
 
 import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/lib/sessions";
-import ProjectCard, { Project } from "~/components/ProjectCard";
+import ProjectCard, { Project } from "~/components/general/ProjectCard";
 
 export const loader = async ({ request }: Route.LoaderArgs) => {
   const session = await getSession(request.headers.get("Cookie"));

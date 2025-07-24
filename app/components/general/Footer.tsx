@@ -1,6 +1,6 @@
-import GithubIcon from "./icons/GithubIcon";
-import InstaIcon from "./icons/InstaIcon";
-import LinkedInIcon from "./icons/LinkedInIcon";
+import GithubIcon from "../icons/GithubIcon";
+import InstaIcon from "../icons/InstaIcon";
+import LinkedInIcon from "../icons/LinkedInIcon";
 
 export const socials = [
   {

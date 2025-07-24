@@ -30,9 +30,4 @@ export default [
     route("flights", "routes/projects/flights.tsx"),
     route("classifiers", "routes/projects/classifiers.tsx"),
   ]),
-
-  ...prefix("socialpsych", [
-    index("routes/socialpsych/index.tsx"),
-    route("edit", "routes/socialpsych/edit.tsx"),
-  ]),
 ] satisfies RouteConfig;

@@ -6,9 +6,9 @@ import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/lib/sessions";
 
 // components
-import Footer, { socials } from "~/components/Footer";
-import Header from "~/components/Header";
-import Modal from "~/components/Modal";
+import Footer, { socials } from "~/components/general/Footer";
+import Header from "~/components/general/Header";
+import Modal from "~/components/general/Modal";
 
 // icons
 import ProfileIcon from "~/components/icons/ProfileIcon";

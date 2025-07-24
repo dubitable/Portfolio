@@ -5,10 +5,10 @@ import { getUserInfo } from "~/.server/auth";
 import { getSession } from "~/lib/sessions";
 
 // components
-import ReactMarkdown from "~/components/Markdown";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
-import Error404 from "~/components/404";
+import ReactMarkdown from "~/components/blog/Markdown";
+import Header from "~/components/general/Header";
+import Footer from "~/components/general/Footer";
+import Error404 from "~/components/general/404";
 import { Route } from "./+types/view";
 
 export const loader = async ({ params, request }: Route.LoaderArgs) => {
