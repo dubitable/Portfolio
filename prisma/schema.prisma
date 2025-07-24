@@ -40,3 +40,174 @@ model Link {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   link String
 }
+
+model Team {
+  id                                   String  @id @default(auto()) @map("_id") @db.ObjectId
+  ARate                                Float?
+  Active_Coaching_Length               String? @map("Active Coaching Length")
+  Active_Coaching_Length_Index         Int?    @map("Active Coaching Length Index")
+  AdjDE                                Float
+  AdjEM                                Float
+  AdjOE                                Float?
+  AdjTempo                             Float
+  Adjusted_Defensive_Efficiency        Float?  @map("Adjusted Defensive Efficiency")
+  Adjusted_Defensive_Efficiency_Rank   Int     @map("Adjusted Defensive Efficiency Rank")
+  Adjusted_Offensive_Efficiency        Float?  @map("Adjusted Offensive Efficiency")
+  Adjusted_Offensive_Efficiency_Rank   Int     @map("Adjusted Offensive Efficiency Rank")
+  Adjusted_Tempo                       Float?  @map("Adjusted Tempo")
+  Adjusted_Tempo_Rank                  Int     @map("Adjusted Tempo Rank")
+  Avg_Possession_Length__Defense_      Float?  @map("Avg Possession Length (Defense)")
+  Avg_Possession_Length__Defense__Rank Int?    @map("Avg Possession Length (Defense) Rank")
+  Avg_Possession_Length__Offense_      Float?  @map("Avg Possession Length (Offense)")
+  Avg_Possession_Length__Offense__Rank Int?    @map("Avg Possession Length (Offense) Rank")
+  AvgHeight                            Float?
+  Bench                                Float?
+  BenchRank                            Int?
+  BlockPct                             Float?
+  CenterDR                             Float?
+  CenterHeight                         Float?
+  CenterOR                             Float?
+  CenterPts                            Float?
+  Current_Coach                        String? @map("Current Coach")
+  DE                                   Float?
+  DFP                                  Float?
+  Def2PtFG                             Float?
+  Def3PtFG                             Float?
+  DefFT                                Float?
+  EffectiveHeight                      Float?
+  Experience                           Float?
+  FG2Pct                               Float?
+  FG3Pct                               Float?
+  FG3Rate                              Float?
+  FTPct                                Float?
+  FTRate                               Float?
+  Final_Four_                          String  @map("Final Four?")
+  Full_Team_Name                       String? @map("Full Team Name")
+  Mapped_Conference_Name               String  @map("Mapped Conference Name")
+  Mapped_ESPN_Team_Name                String  @map("Mapped ESPN Team Name")
+  NSTRate                              Float?
+  Net_Rating                           Float?  @map("Net Rating")
+  Net_Rating_Rank                      Int     @map("Net Rating Rank")
+  OE                                   Float?
+  ORPct                                Float?
+  Off2PtFG                             Float?
+  Off3PtFG                             Float?
+  OffFT                                Float?
+  OppARate                             Float?
+  OppBlockPct                          Float?
+  OppFG2Pct                            Float?
+  OppFG3Pct                            Float?
+  OppFG3Rate                           Float?
+  OppFTPct                             Float?
+  OppNSTRate                           Float?
+  OppStlRate                           Float?
+  PFDR                                 Float?
+  PFHeight                             Float?
+  PFOR                                 Float?
+  PFPts                                Float?
+  PGDR                                 Float?
+  PGHeight                             Float?
+  PGOR                                 Float?
+  PGPts                                Float?
+  Post_Season_Tournament               String  @map("Post-Season Tournament")
+  Post_Season_Tournament_Sorting_Index Float?  @map("Post-Season Tournament Sorting Index")
+  Pre_Tournament_AdjDE                 Float?  @map("Pre-TournamentAdjDE")
+  Pre_Tournament_AdjEM                 Float?  @map("Pre-TournamentAdjEM")
+  Pre_Tournament_AdjOE                 Float?  @map("Pre-TournamentAdjOE")
+  Pre_Tournament_AdjTempo              Float?  @map("Pre-TournamentAdjTempo")
+  Pre_Tournament_DE                    Float?  @map("Pre-TournamentDE")
+  Pre_Tournament_OE                    Float?  @map("Pre-TournamentOE")
+  Pre_Tournament_RankAdjDE             Int?    @map("Pre-TournamentRankAdjDE")
+  Pre_Tournament_RankAdjEM             Int?    @map("Pre-TournamentRankAdjEM")
+  Pre_Tournament_RankAdjOE             Int?    @map("Pre-TournamentRankAdjOE")
+  Pre_Tournament_RankAdjTempo          Int?    @map("Pre-TournamentRankAdjTempo")
+  Pre_Tournament_RankDE                Int?    @map("Pre-TournamentRankDE")
+  Pre_Tournament_RankOE                Int?    @map("Pre-TournamentRankOE")
+  Pre_Tournament_RankTempo             Int?    @map("Pre-TournamentRankTempo")
+  Pre_Tournament_Tempo                 Float?  @map("Pre-TournamentTempo")
+  RankARate                            Int
+  RankAdjDE                            Int
+  RankAdjEM                            Int
+  RankAdjOE                            Int
+  RankAdjTempo                         Int
+  RankAvgHeight                        Int?
+  RankBlockPct                         Int
+  RankCenterDR                         Int?
+  RankCenterHeight                     Int?
+  RankCenterOR                         Int?
+  RankCenterPts                        Int?
+  RankDE                               Int
+  RankDef2PtFG                         Int
+  RankDef3PtFG                         Int
+  RankDefFT                            Int
+  RankEffectiveHeight                  Int?
+  RankExperience                       Int?
+  RankFG2Pct                           Int
+  RankFG3Pct                           Int
+  RankFG3Rate                          Int
+  RankFTPct                            Int
+  RankFTRate                           Int
+  RankNSTRate                          Int?
+  RankOE                               Int
+  RankORPct                            Int
+  RankOff2PtFG                         Int
+  RankOff3PtFG                         Int
+  RankOffFT                            Int
+  RankOppARate                         Int
+  RankOppBlockPct                      Int
+  RankOppFG2Pct                        Int
+  RankOppFG3Pct                        Int
+  RankOppFG3Rate                       Int
+  RankOppFTPct                         Int
+  RankOppNSTRate                       Int?
+  RankOppStlRate                       Int
+  RankPFDR                             Int?
+  RankPFHeight                         Int?
+  RankPFOR                             Int?
+  RankPFPts                            Int?
+  RankPGDR                             Int?
+  RankPGHeight                         Int?
+  RankPGOR                             Int?
+  RankPGPts                            Int?
+  RankSFDR                             Int?
+  RankSFHeight                         Int?
+  RankSFOR                             Int?
+  RankSFPts                            Int?
+  RankSGDR                             Int?
+  RankSGHeight                         Int?
+  RankSGOR                             Int?
+  RankSGPts                            Int?
+  RankStlRate                          Int
+  RankTOPct                            Int
+  RankTempo                            Int
+  RankeFGPct                           Int
+  Raw_Defensive_Efficiency             Float?  @map("Raw Defensive Efficiency")
+  Raw_Defensive_Efficiency_Rank        Int     @map("Raw Defensive Efficiency Rank")
+  Raw_Offensive_Efficiency             Float?  @map("Raw Offensive Efficiency")
+  Raw_Offensive_Efficiency_Rank        Int     @map("Raw Offensive Efficiency Rank")
+  Raw_Tempo                            Float?  @map("Raw Tempo")
+  Raw_Tempo_Rank                       Int     @map("Raw Tempo Rank")
+  Region                               String
+  SFDR                                 Float?
+  SFHeight                             Float?
+  SFOR                                 Float?
+  SFPts                                Float?
+  SGDR                                 Float?
+  SGHeight                             Float?
+  SGOR                                 Float?
+  SGPts                                Float?
+  Season                               Int
+  Seed                                 String
+  Short_Conference_Name                String  @map("Short Conference Name")
+  Since                                Int?
+  StlRate                              Float?
+  TOPct                                Float?
+  Tempo                                Float?
+  Top_12_in_AP_Top_25_During_Week_6_   String  @map("Top 12 in AP Top 25 During Week 6?")
+  Tournament_Championship_             String  @map("Tournament Championship?")
+  Tournament_Winner_                   String  @map("Tournament Winner?")
+  Vulnerable_Top_2_Seed_               String  @map("Vulnerable Top 2 Seed?")
+  eFGPct                               Float?
+  id_                                  Int     @map("id")
+  logos                                String?
+}
