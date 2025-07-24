@@ -31,7 +31,7 @@ const Warning = ({
             <strong className="font-medium"> {header} </strong>
           </div>
           <button
-            className="-m-3 rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200"
+            className="-m-3 rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-700 text-gray-400 hover:bg-gray-700 hover:text-gray-200"
             type="button"
             onClick={onClose}
             aria-label="Dismiss alert"

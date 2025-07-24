@@ -28,11 +28,11 @@ const Paginate = ({
 
   return (
     <div>
-      <ul className="flex justify-center gap-3 text-gray-900 dark:text-white noselect">
+      <ul className="flex justify-center gap-3 text-gray-900 text-white noselect">
         <li>
           <a
             onClick={() => prev()}
-            className="grid size-8 place-content-center cursor-pointer rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-gray-800"
+            className="grid size-8 place-content-center cursor-pointer rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 border-gray-700 hover:bg-gray-800"
             aria-label="Previous page"
           >
             <svg
@@ -57,7 +57,7 @@ const Paginate = ({
         <li>
           <a
             onClick={() => next()}
-            className="grid size-8 cursor-pointer place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-gray-800"
+            className="grid size-8 cursor-pointer place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 border-gray-700 hover:bg-gray-800"
             aria-label="Next page"
           >
             <svg

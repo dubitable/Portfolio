@@ -148,9 +148,9 @@ const Table = ({
         </Tooltip>
       ))}
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700">
-          <thead className=" bg-white ltr:text-left rtl:text-right dark:bg-gray-900">
-            <tr className="*:font-medium *:text-gray-900 dark:*:text-white *:first:sticky *:first:left-0 *:first:bg-gray-900">
+        <table className="min-w-full divide-y-2 divide-gray-200 divide-gray-700">
+          <thead className=" bg-white ltr:text-left rtl:text-right bg-gray-900">
+            <tr className="*:font-medium *:text-gray-900 *:text-white *:first:sticky *:first:left-0 *:first:bg-gray-900">
               {keys(teams[0])
                 .slice(SKIP_COLS)
                 .map((key, index) => (
@@ -178,10 +178,10 @@ const Table = ({
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody className="divide-y divide-gray-200 divide-gray-700">
             {paginate.slice(teams).map((team, teamIndex) => (
               <tr
-                className="*:text-gray-900 *:first:sticky dark:*:text-white *:first:left-0 *:first:bg-[#242424]"
+                className="*:text-gray-900 *:first:sticky *:text-white *:first:left-0 *:first:bg-[#242424]"
                 key={teamIndex}
               >
                 {entries(team)

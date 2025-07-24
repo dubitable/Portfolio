@@ -32,12 +32,12 @@ const Search = ({
                 setValue(update);
             }}
             placeholder="Please select"
-            className="mt-0.5 w-full rounded border-gray-300 pe-8 p-3 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white [&::-webkit-calendar-picker-indicator]:opacity-0"
+            className="mt-0.5 w-full rounded border-gray-300 pe-8 p-3 shadow-sm sm:text-sm border-gray-600 bg-gray-900 text-white [&::-webkit-calendar-picker-indicator]:opacity-0"
           />
 
           {value ? (
             <span
-              className="absolute inset-y-0 right-0 grid place-content-center text-gray-700 dark:text-gray-200 px-2 cursor-pointer border-none"
+              className="absolute inset-y-0 right-0 grid place-content-center text-gray-700 text-gray-200 px-2 cursor-pointer border-none"
               onClick={() => setValue(undefined)}
             >
               <svg
@@ -52,7 +52,7 @@ const Search = ({
               </svg>
             </span>
           ) : (
-            <span className="absolute inset-y-0 right-0 grid place-content-center text-gray-700 dark:text-gray-200 px-2">
+            <span className="absolute inset-y-0 right-0 grid place-content-center text-gray-700 text-gray-200 px-2">
               <svg
                 stroke="white"
                 fill="white"

@@ -26,10 +26,10 @@ const Slider = ({ minState, maxState }: SliderProps) => {
           placeholder=""
           value={min}
           onChange={(e) => setMin(Number(e.currentTarget.value))}
-          className="peer mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+          className="peer mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm border-gray-600 bg-gray-900 text-white"
         />
 
-        <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5 dark:bg-gray-900 dark:text-white">
+        <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5 bg-gray-900 text-white">
           MIN
         </span>
       </label>
@@ -41,10 +41,10 @@ const Slider = ({ minState, maxState }: SliderProps) => {
           placeholder=""
           value={max}
           onChange={(e) => setMax(Number(e.currentTarget.value))}
-          className="peer mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+          className="peer mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm border-gray-600 bg-gray-900 text-white"
         />
 
-        <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5 dark:bg-gray-900 dark:text-white">
+        <span className="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5 bg-gray-900 text-white">
           MAX
         </span>
       </label>
