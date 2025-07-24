@@ -21,6 +21,15 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
 
 const projects: Project[] = [
   {
+    name: "VennCBB",
+    subtitle: "College Basketball Advanced Analytics",
+    desc: "",
+    date: "Jul 24, 2025",
+    categories: "CBB, D3",
+    href: "/projects/venncbb",
+    src: "/projects/venncbb.png",
+  },
+  {
     name: "Flight Tracker",
     subtitle:
       "Live Flight Tracking and Route Information using Amadeus and OpenSky APIs",
