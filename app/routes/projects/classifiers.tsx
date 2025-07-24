@@ -16,9 +16,9 @@ import { Client, FileData } from "@gradio/client";
 import { Command } from "node_modules/@gradio/client/dist/types";
 
 // components
-import FancyButton from "~/components/FancyButton";
-import Progress from "~/components/Progress";
-import Select from "~/components/Select";
+import FancyButton from "~/components/general/FancyButton";
+import Progress from "~/components/classifiers/Progress";
+import Select from "~/components/general/Select";
 import { icons } from "~/components/icons/icon";
 
 // icons

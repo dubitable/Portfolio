@@ -15,11 +15,11 @@ import { getSession } from "~/lib/sessions";
 import { Route } from "./+types/list";
 
 // components
-import FancyButton from "~/components/FancyButton";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import ReactMarkdown from "~/components/Markdown";
-import BlogCard from "~/components/BlogCard";
+import FancyButton from "~/components/general/FancyButton";
+import Footer from "~/components/general/Footer";
+import Header from "~/components/general/Header";
+import ReactMarkdown from "~/components/blog/Markdown";
+import BlogCard from "~/components/blog/BlogCard";
 
 // icons
 import ImageIcon from "~/components/icons/ImageIcon";

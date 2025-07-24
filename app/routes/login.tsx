@@ -2,8 +2,8 @@ import { MetaFunction, redirect, Form } from "react-router";
 import { login, LoginError, LoginErrors } from "~/.server/auth";
 import { z } from "zod";
 import { commitSession, getSession } from "~/lib/sessions";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
+import Header from "~/components/general/Header";
+import Footer from "~/components/general/Footer";
 import { Route } from "./+types/login";
 
 export const meta: MetaFunction = () => {

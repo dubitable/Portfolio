@@ -24,9 +24,9 @@ import {
 import { getSession } from "~/lib/sessions";
 
 // components
-import HeatMap from "~/components/HeatMap";
+import HeatMap from "~/components/neural/HeatMap";
 import colors from "~/components/colors/colors";
-import Select from "~/components/Select";
+import Select from "~/components/general/Select";
 
 // icons
 import ReplayIcon from "~/components/icons/ReplayIcon";

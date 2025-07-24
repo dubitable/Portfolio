@@ -1,7 +1,7 @@
 import { redirect } from "react-router";
 import { Route } from "./+types/index";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
+import Footer from "~/components/general/Footer";
+import Header from "~/components/general/Header";
 
 export const loader = async ({}: Route.LoaderArgs) => {
   return redirect("/blog");
