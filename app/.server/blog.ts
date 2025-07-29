@@ -1,4 +1,4 @@
-import { Blog } from "@prisma-app/client";
+import { Blog } from "@prisma/client";
 import prisma from "./prisma";
 
 export const saveBlog = async (
@@ -87,7 +87,7 @@ export const getBlogs = async (userId?: string): Promise<BlogVersion[]> => {
 
   const blogs = await prisma.blog.findMany({
     where: { OR },
-    orderBy: { createdAt: "asc" },
+    orderBy: { createdAt: "desc" },
   });
 
   const blogVersions = blogs.map(async (blog) => {
