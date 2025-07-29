@@ -87,7 +87,7 @@ export const getBlogs = async (userId?: string): Promise<BlogVersion[]> => {
 
   const blogs = await prisma.blog.findMany({
     where: { OR },
-    orderBy: { createdAt: "desc" },
+    orderBy: { createdAt: "asc" },
   });
 
   const blogVersions = blogs.map(async (blog) => {

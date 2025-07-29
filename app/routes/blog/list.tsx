@@ -144,7 +144,7 @@ const Blogs = ({
   tempBlog?: BlogVersion;
 }) => {
   const loaderData = useLoaderData<typeof loader>();
-  const { blogs } = loaderData;
+  const blogs = loaderData.blogs.reverse();
 
   const allBlogs = tempBlog ? [tempBlog, ...blogs] : blogs;
 
