@@ -46,7 +46,7 @@ export const meta = ({}: Route.MetaArgs) => {
 const aboutMes = [
   {
     title: "About Me",
-    text: "Hey there! I'm Pierre Quereuil, an aspiring software engineer and current student. My parents are French but I grew up in San Francisco, California - and now I'm in Durham, NC. I'd recommend starting out with my blog if you're interested in what I build!",
+    text: "Hey there! I'm Pierre Quereuil, an aspiring software engineer and current student. My parents are French, I was born and raised in San Francisco, California - and now I'm in Durham, NC. I'd recommend starting out with my blog if you're interested in what I build!",
     desc: "Pierre Louis Clyde Quereuil",
     image: "/about/linkedin.jpeg",
     icon: () => <ProfileIcon />,
