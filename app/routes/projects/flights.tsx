@@ -23,37 +23,37 @@ const warnings = {
     "Our provider was not able to retrieve data for this flight, likely because it is non-commercial. You can follow the FlightAware link on the flight number for more information.",
 };
 
-export const action = async ({ request }: Route.ActionArgs) => {
-  const parsed = ActionSchema.safeParse(await request.json());
-  if (parsed.error) return;
+// export const action = async ({ request }: Route.ActionArgs) => {
+//   const parsed = ActionSchema.safeParse(await request.json());
+//   if (parsed.error) return;
 
-  const { data } = parsed;
-  const flightclient = new FlightClient();
+//   const { data } = parsed;
+//   const flightclient = new FlightClient();
 
-  if (data.action == "flights") {
-    const states = await flightclient.getStates();
-    const flights = states.map((state, index) => {
-      return {
-        lat: state[6] as number,
-        lng: state[5] as number,
-        color: "red",
-        size: 0,
-        callsign: state[1] as string | null,
-        index,
-      };
-    });
-    return { flights };
-  } else if (data.action == "route") {
-    const route = await flightclient.getRoute(data.callsign);
+//   if (data.action == "flights") {
+//     const states = await flightclient.getStates();
+//     const flights = states.map((state, index) => {
+//       return {
+//         lat: state[6] as number,
+//         lng: state[5] as number,
+//         color: "red",
+//         size: 0,
+//         callsign: state[1] as string | null,
+//         index,
+//       };
+//     });
+//     return { flights };
+//   } else if (data.action == "route") {
+//     const route = await flightclient.getRoute(data.callsign);
 
-    if (route) return { route };
-    else {
-      return { warning: warnings.amadeus };
-    }
-  }
+//     if (route) return { route };
+//     else {
+//       return { warning: warnings.amadeus };
+//     }
+//   }
 
-  return undefined;
-};
+//   return undefined;
+// };
 
 const Flights = ({ actionData }: Route.ComponentProps) => {
   const [content, setContent] = useState<JSX.Element | undefined>();
